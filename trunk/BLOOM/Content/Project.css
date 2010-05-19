@@ -1,0 +1,452 @@
+﻿body
+{
+	width: 853px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+ .page
+{
+	vertical-align:middle;	
+}
+
+#Content2
+{
+	background-color:Transparent;
+}
+
+/*for the master*/
+#header
+{
+	vertical-align: bottom;
+}
+
+#Head_table td
+{
+	vertical-align:bottom;
+}
+
+#foot
+{
+	clear:both;
+	height:1.5em;
+	background-color:ButtonShadow;
+}
+
+#bottom
+{
+	list-style:none;
+	margin:2px 0 0 260px;
+	padding:2px 0 0 260px;
+}
+
+#bottom li
+{
+	display:inline;
+	margin:0 0 0 10px;
+	padding:0 0 0 10px;
+	color:White;
+	font-weight:bold;
+	font-size:small;	
+}
+
+/*for the index*/
+#SideBar1
+{
+	width: 188px;
+	float: left;
+	margin: 10px 10px 10px 0;
+}
+
+#LoginBar
+{
+	height:200px;
+	background-image:url(../Image/login_register.jpg);
+	background-repeat:no-repeat;
+	text-align:center;
+	vertical-align:middle;
+}
+
+#LR
+{
+	padding: 20px;
+	font-size: xx-large;
+	font-weight: bold;
+	color: #507010;
+}
+
+#MainBar
+{
+	width:446px;
+	float:left;
+	margin:10px 10px 10px 0;
+}
+
+.InlineUl
+{
+	margin:0;
+	padding:2px 0 5px 0;
+	line-height:1.5em;
+	color:#e8f8d0;
+}
+
+
+#BookClassify
+{
+	background-image:url(../Image/groundcolor/sidebar.jpg);
+	background-repeat:repeat-y;
+	margin-bottom:10px;
+}
+
+.InlineUl li
+{
+	display: inline;
+	padding: 0 10px 0 0;
+	margin: 0;
+}
+
+
+
+#Classify
+{
+	font-size:small;
+	font-weight:bold;
+	margin:0;
+	padding:0 10px 0 15px;
+	list-style:none;
+	line-height:1.3em;
+}
+
+#Advertise
+{
+	height:230px;
+	margin:0 0 3px 0;
+	border-style:groove;
+}
+
+#Recommend,#Comment
+{
+	height:160px;
+	margin:0 0 3px 0;
+	border-style:groove;
+}
+
+#RecTitle
+{
+	color:#7a68a6;
+	font-weight:bold;
+	padding:3px;
+}
+
+#ComTitle
+{
+	color:#348abd;
+	font-weight:bold;
+	padding:3px;
+}
+
+.MainUl
+{
+	list-style:none;
+	margin-left:0;
+}
+
+
+
+#MainBar2
+{
+	background-color:#e8f8d0;
+	clear: right;
+	width: 655px;
+	float: right;
+	margin: 0 0 10px 0;
+	height: 180px;
+}
+
+#SideBar2
+{
+	width: 188px;
+	float: right;
+	margin: 10px 0 10px 0;
+	border-style:groove;
+	height: 552px;
+}
+
+#SideBar2 h3
+{
+	margin: 2px 0 2px 0;
+	background-color: #CEDCEE;
+	color: #348abd;
+}
+
+h3
+{
+	text-align: center;
+}
+
+#HotBook,#Rank
+{
+	height:200px;
+	margin-bottom:5px;
+}
+
+
+/*for the Register*/
+.Sidebar_Register
+{
+	float:left;
+	width:188px;
+}
+
+.Step
+{
+	border-color: #6C93B0;
+	border-style: solid;
+	border-width:thin;
+}
+
+.Step h3
+{
+	margin: 2px 0 2px 0;
+	background-color: #CEDCEE;
+	color: #6C93B0;
+}
+
+.Step ul
+{
+	border:solid #6C93B0 thin;
+	list-style: none;
+	line-height: 2em;
+	margin: 0;
+	padding:0;
+	text-align:center;
+	color: #808080;
+}
+
+.Current
+{
+	color: #6C93B0;
+	font-weight: bold;
+	text-decoration:underline;
+	font-size: large;
+}
+
+.Main_Register
+{
+	float:right;
+	width:655px;
+	background-color: #EFFADE;
+}
+
+#Title_Register p
+{
+	font-size: small;
+	color: Gray;
+	text-align:center;	
+}
+
+#BasicInfo legend,#FurtherInfo legend
+{
+	background-color:#507010;
+	color:#e8f8d0;
+}
+
+#BasicInfo,#FurtherInfo
+{
+	margin:0 20px 0 20px;
+}
+
+#Partition
+{
+	text-align:center;
+	padding:5px 0 5px 0;
+}
+
+.Table_Register td
+{
+	padding:10px;
+}
+
+#Submit_Register
+{
+	text-align:center;
+}
+
+/*Register successfully*/
+#SuccessInfo
+{
+	margin: 30px;
+	text-align: center;
+	font-size: x-large;
+	font-weight: bold;
+	color: #507010;
+}
+
+#Success
+{
+	text-align:center;
+}
+
+
+/*for login*/
+#Login_Body
+{
+	width: 655px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:80px;
+}
+	
+
+#Login_Login
+{
+	background-image:url(../Image/Login/login_middle.jpg);
+	background-repeat:repeat-x;
+	height:390px;
+	width:341px;
+}
+
+#Login_Register
+{
+	background-image:url(../Image/Login/login_middler.jpg);
+	background-repeat:repeat-x;
+	height:390px;
+	width:221px;
+	text-align:center;
+	font-size:larger;
+	font-weight:bolder;
+	color:White;
+	line-height:2em;
+}
+
+#Login_Login fieldset
+{
+	width: 280px;
+	font-size: large;
+	font-weight: bold;
+	border-style:none;
+	text-align:center;
+}
+
+.Left
+{
+	text-align:left;
+}
+
+/*for search result*/
+#MainSearch
+{
+	float:left;
+	width:655px;
+	margin:10px 10px 10px 0;
+}
+
+#SearchSideBar
+{
+	float:right;
+	width:188px;
+	margin:10px 0 10px 0;
+}
+
+#SearchBottom
+{
+	clear:both;
+	width:854px;
+	margin:0 0 10px 0;
+	height:120px;
+}
+
+.SearchList
+{
+}
+
+#SearchUl
+{
+	list-style:none;
+	margin-left:0;
+}
+
+.BookPic
+{
+	float:left;
+	width:30%;
+}
+
+.BookInfo
+{
+	float:right;
+	width:68%;
+}
+
+/*for book info*/
+#MainBook
+{
+	float:left;
+	margin:10px 10px 10px 0;
+	width:655px;
+}
+
+#BookSideBar
+{
+	float:right;
+	margin:10px 0 10px 0;
+	width:188px;
+}
+
+/*for personal page*/
+#PersonInfo
+{
+	float:left;
+	margin:10px 10px 10px 0;
+	width:188px;
+}
+
+#ContinueReading
+{
+	float:right;
+	margin:10px 0 10px 0;
+	width:655px;
+}
+
+#MultiInfo
+{
+	clear:both;
+	margin :0 0 10px 0;
+}
+
+/*for community*/
+#Activity
+{
+	float:left;
+	margin:10px 10px 10px 0;
+	width:655px;
+}
+
+#BBS
+{
+	float:left;
+	margin:0 10px 10px 0;
+	width:655px;
+}
+
+#ComSideBar
+{
+	float:right;
+	margin:10px 0 10px 0;
+	width:188px;
+}
+
+/*for reading*/
+#Catalog
+{
+	float:left;
+	width:188px;
+	border-style:groove;
+}
+
+#BookContant
+{
+	float:right;
+	width:655px;
+	border-style:groove;
+}

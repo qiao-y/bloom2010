@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="BookLinqConnecion">
+  <DataContextMoniker Name="/BookLinqConnecionDataContext" />
+  <nestedChildShapes>
+    <classShape Id="f4539503-1ed7-4474-a037-08fe06403644" absoluteBounds="0.5, 3.375, 2, 2.1446048990885416">
+      <DataClassMoniker Name="/BookLinqConnecionDataContext/aspnet_Users" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b0b16058-3839-4c2c-81ab-323b6e10d43d" absoluteBounds="0.51500000000000012, 3.835, 1.9700000000000002, 1.5846048990885415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="052f967b-03f7-4572-a753-d057f687281f" absoluteBounds="0.5, 1.125, 2, 1.7625655110677081">
+      <DataClassMoniker Name="/BookLinqConnecionDataContext/book_Remarks" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1a7869ae-03f3-4029-a3db-3e14d398dd16" absoluteBounds="0.51500000000000012, 1.585, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5 : 3.375); (1.5 : 2.88756551106771)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BookLinqConnecionDataContext/aspnet_Users/aspnet_Users_book_Remarks" />
+      <nodes>
+        <classShapeMoniker Id="f4539503-1ed7-4474-a037-08fe06403644" />
+        <classShapeMoniker Id="052f967b-03f7-4572-a753-d057f687281f" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="11ebb234-495b-4c83-8586-c8975cc0b388" absoluteBounds="5.875, 3.875, 2, 1.3805261230468751">
+      <DataClassMoniker Name="/BookLinqConnecionDataContext/book_Categories" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6f17d0d0-17d8-4bf2-9bde-29eb1aec229a" absoluteBounds="5.8900000000000006, 4.335, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fea1787e-3300-4d07-8aef-b5601f54a89f" absoluteBounds="3.125, 4.25, 2, 1.5715458170572916">
+      <DataClassMoniker Name="/BookLinqConnecionDataContext/book_BooksViewed" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6a546324-8d74-4bab-9219-e1a576562bf6" absoluteBounds="3.1400000000000006, 4.71, 1.9700000000000002, 1.0115458170572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 4.88480244954427); (3.125 : 4.88480244954427)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BookLinqConnecionDataContext/aspnet_Users/aspnet_Users_book_BooksViewed" />
+      <nodes>
+        <classShapeMoniker Id="f4539503-1ed7-4474-a037-08fe06403644" />
+        <classShapeMoniker Id="fea1787e-3300-4d07-8aef-b5601f54a89f" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="11526cc3-b679-4d31-affe-67be3a9bba1b" absoluteBounds="5.875, 2, 2, 1.1895064290364583">
+      <DataClassMoniker Name="/BookLinqConnecionDataContext/book_BooksBelong" />
+      <nestedChildShapes>
+        <elementListCompartment Id="129f5156-9e8f-47f9-91cf-0e65152fc9ad" absoluteBounds="5.89, 2.46, 1.9700000000000002, 0.62950642903645826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.875 : 3.875); (6.875 : 3.18950642903646)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BookLinqConnecionDataContext/book_Categories/book_Categories_book_BooksBelong" />
+      <nodes>
+        <classShapeMoniker Id="11ebb234-495b-4c83-8586-c8975cc0b388" />
+        <classShapeMoniker Id="11526cc3-b679-4d31-affe-67be3a9bba1b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9d45fdef-239d-42a1-bb9f-1a37e868280d" absoluteBounds="0.5, 6.5, 2, 1.7625655110677081">
+      <DataClassMoniker Name="/BookLinqConnecionDataContext/book_BookBought" />
+      <nestedChildShapes>
+        <elementListCompartment Id="665426d6-7754-44de-9727-59646dcfc2a1" absoluteBounds="0.51500000000000012, 6.96, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5 : 5.51960489908854); (1.5 : 6.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BookLinqConnecionDataContext/aspnet_Users/aspnet_Users_book_BookBought" />
+      <nodes>
+        <classShapeMoniker Id="f4539503-1ed7-4474-a037-08fe06403644" />
+        <classShapeMoniker Id="9d45fdef-239d-42a1-bb9f-1a37e868280d" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b495e03a-bed4-4e9b-aa39-d9627ef10161" absoluteBounds="3.25, 0.5, 2, 3.0997033691406251">
+      <DataClassMoniker Name="/BookLinqConnecionDataContext/book_BookInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0e8d7625-76c9-4884-ae00-afaf936591a7" absoluteBounds="3.265, 0.96, 1.9700000000000002, 2.539703369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.25 : 2.00628275553385); (2.5 : 2.00628275553385)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BookLinqConnecionDataContext/book_BookInfo/book_BookInfo_book_Remarks" />
+      <nodes>
+        <classShapeMoniker Id="b495e03a-bed4-4e9b-aa39-d9627ef10161" />
+        <classShapeMoniker Id="052f967b-03f7-4572-a753-d057f687281f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.1875 : 3.59970336914063); (4.1875 : 4.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BookLinqConnecionDataContext/book_BookInfo/book_BookInfo_book_BooksViewed" />
+      <nodes>
+        <classShapeMoniker Id="b495e03a-bed4-4e9b-aa39-d9627ef10161" />
+        <classShapeMoniker Id="fea1787e-3300-4d07-8aef-b5601f54a89f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.25 : 2.59475321451823); (5.875 : 2.59475321451823)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BookLinqConnecionDataContext/book_BookInfo/book_BookInfo_book_BooksBelong" />
+      <nodes>
+        <classShapeMoniker Id="b495e03a-bed4-4e9b-aa39-d9627ef10161" />
+        <classShapeMoniker Id="11526cc3-b679-4d31-affe-67be3a9bba1b" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
