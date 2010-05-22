@@ -3,3 +3,8 @@ F:\Projects(S02E02)\BLOOM_DigitalLibary\BLOOM\BLOOM\bin\BLOOM.pdb
 F:\Projects(S02E02)\BLOOM_DigitalLibary\BLOOM\BLOOM\obj\Debug\ResolveAssemblyReference.cache
 F:\Projects(S02E02)\BLOOM_DigitalLibary\BLOOM\BLOOM\obj\Debug\BLOOM.dll
 F:\Projects(S02E02)\BLOOM_DigitalLibary\BLOOM\BLOOM\obj\Debug\BLOOM.pdb
+F:\BLOOM\BLOOM\obj\Debug\ResolveAssemblyReference.cache
+F:\BLOOM\BLOOM\obj\Debug\BLOOM.dll
+F:\BLOOM\BLOOM\bin\BLOOM.dll
+F:\BLOOM\BLOOM\bin\BLOOM.pdb
+F:\BLOOM\BLOOM\obj\Debug\BLOOM.pdb

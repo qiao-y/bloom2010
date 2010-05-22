@@ -31,6 +31,7 @@ namespace BLOOM.Models.User
             return m_userDataContext.aspnet_AccountInfo.SingleOrDefault(d => d.UserId == uid);       
         }
 
+
         public IQueryable<aspnet_Membership> GetAllUser()
         {
             return m_userDataContext.aspnet_Membership;

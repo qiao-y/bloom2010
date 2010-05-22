@@ -54,7 +54,7 @@ namespace BLOOM.Models.User
 
         public static SelectList GetOccupationList(string occupation)
         {
-            // This is a static function, so call it directly by "PersonalInfo.GetGenList("M")"
+            // This is a static function, so call it directly by "PersonalInfo.GetOccupationList("IT")"
             List<SelectListItem> occupationList = new List<SelectListItem>(){
                 new SelectListItem() { Value = "Common", Text = "一般职业"},
                 new SelectListItem() { Value = "Agriculture", Text = "农业"},

@@ -24,14 +24,14 @@ namespace BLOOM.Controllers
         }
 
         //GET: /user
-        public ActionResult Index()
-        {
-            string userName = User.Identity.Name();
-            Guid guid = Membership.GetUser(userName).ProviderName;
-            aspnet_AccountInfo accountInfo = m_userRepository.GetAccountInfo(guid);
+        //public ActionResult Index()
+        //{
+        //    string userName = User.Identity.Name();
+        //    Guid guid = Membership.GetUser(userName).ProviderName;
+        //    aspnet_AccountInfo accountInfo = m_userRepository.GetAccountInfo(guid);
             
-            PersonalInfo 
-        }
+        //    PersonalInfo 
+        //}
 
         //GET: /user/details/1
         public ActionResult Details(int id)

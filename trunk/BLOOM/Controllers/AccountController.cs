@@ -111,11 +111,18 @@ namespace BLOOM.Controllers
                 UserRepository userRepository = new UserRepository();
                 Guid guid = new Guid();
                 guid = (Guid)newUser.ProviderUserKey;
+
                 aspnet_AccountInfo balanceInfo = new aspnet_AccountInfo();
                 balanceInfo.UserId = guid;
                 balanceInfo.MoneyPaid = 0;
                 balanceInfo.Balance = 200;  // a default of 200 RMB balance
                 userRepository.Add(balanceInfo);
+
+                aspnet_Membership membership = userRepository.GetUserPersonalInfo(guid);
+                membership.Gender = personalInfo.Gender;
+                membership.Occupation = personalInfo.Occupation;
+                membership.Age = personalInfo.Age;
+
                 userRepository.Submit();
                 Session["UserName"] = personalInfo.UserName;
                 FormsAuthentication.SetAuthCookie(personalInfo.UserName, true); //log in
