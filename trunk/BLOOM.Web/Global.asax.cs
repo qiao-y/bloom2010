@@ -22,6 +22,13 @@ namespace BLOOM.Web
                 new { controller = "Home", action = "Index", id = "" }  // Parameter defaults
             );
 
+            routes.MapRoute(
+                 "Book",
+                 "Book/Read/{id}/{page}",
+                 new { controller = "Book", action = "Read", id = "", page = "" }
+             ); 
+  
+ 
         }
 
         protected void Application_Start()

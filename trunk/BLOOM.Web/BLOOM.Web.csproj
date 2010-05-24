@@ -89,6 +89,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Project.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Image\02hisila1.gif" />
@@ -183,6 +184,11 @@
     <None Include="Models\User\UserLinqConnection.dbml.layout">
       <DependentUpon>UserLinqConnection.dbml</DependentUpon>
     </None>
+    <Content Include="Views\Book\BookIndex.aspx" />
+    <Content Include="Views\Book\Preview.aspx" />
+    <Content Include="Views\Book\Read - 复制.aspx" />
+    <Content Include="Views\Book\Read.aspx" />
+    <Content Include="Views\Shared\Project.Master" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
