@@ -1,0 +1,238 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D10C7910-FF5D-45CB-9AFE-3F16BAC37CEC}</ProjectGuid>
+    <ProjectTypeGuids>{603c0e0b-db56-11dc-be95-000d561079b0};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BLOOM.Web</RootNamespace>
+    <AssemblyName>BLOOM.Web</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdministratorController.cs" />
+    <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Book\BookLinqConnection.designer.cs" />
+    <Compile Include="Models\Book\BookLinqConnection1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookLinqConnection.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Book\BookPageRepository.cs" />
+    <Compile Include="Models\Book\BookRepository.cs" />
+    <Compile Include="Models\User\BalanceInfo.cs" />
+    <Compile Include="Models\User\GenenalInfo.cs" />
+    <Compile Include="Models\User\PersonalInfo.cs" />
+    <Compile Include="Models\User\PersonalInfoRuleViolation.cs" />
+    <Compile Include="Models\User\UserLinqConnection1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserLinqConnection.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User\UserRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Project.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Image\02hisila1.gif" />
+    <Content Include="Image\02hisila2.gif" />
+    <Content Include="Image\02hisila3.gif" />
+    <Content Include="Image\1.jpg" />
+    <Content Include="Image\8.jpg" />
+    <Content Include="Image\9.jpg" />
+    <Content Include="Image\bg.jpg" />
+    <Content Include="Image\book\breaking_dawn.jpg" />
+    <Content Include="Image\book\eclipse.jpg" />
+    <Content Include="Image\book\new_moon.jpg" />
+    <Content Include="Image\book\twilight.jpg" />
+    <Content Include="Image\brick.bmp" />
+    <Content Include="Image\buttonD.jpg" />
+    <Content Include="Image\cloud.bmp" />
+    <Content Include="Image\dot.bmp" />
+    <Content Include="Image\flower.bmp" />
+    <Content Include="Image\grid.bmp" />
+    <Content Include="Image\groundcolor\bgcolor.jpg" />
+    <Content Include="Image\groundcolor\bgcolorbottom.jpg" />
+    <Content Include="Image\groundcolor\bgcolortop.jpg" />
+    <Content Include="Image\groundcolor\sidebar.jpg" />
+    <Content Include="Image\groundcolor\sidebarbottom.jpg" />
+    <Content Include="Image\groundcolor\sidebartop.jpg" />
+    <Content Include="Image\Login\login_left.jpg" />
+    <Content Include="Image\Login\login_middle.jpg" />
+    <Content Include="Image\Login\login_middler.jpg" />
+    <Content Include="Image\Login\login_right.jpg" />
+    <Content Include="Image\login_register.jpg" />
+    <Content Include="Image\note.jpg" />
+    <Content Include="Image\note.png" />
+    <Content Include="Image\pic\0108.bmp" />
+    <Content Include="Image\pic\bg.gif" />
+    <Content Include="Image\pic\bloom.jpg" />
+    <Content Include="Image\pic\logo.jpg" />
+    <Content Include="Image\pic\search.jpg" />
+    <Content Include="Image\pic\tubiao1.jpg" />
+    <Content Include="Image\pic\tubiao2.jpg" />
+    <Content Include="Image\pic\tubiao3.jpg" />
+    <Content Include="Image\pic\tubiao4.jpg" />
+    <Content Include="Image\pic\tubiao5.jpg" />
+    <Content Include="Image\pic\tubiao6.jpg" />
+    <Content Include="Image\pic\tubiao7.jpg" />
+    <Content Include="Image\sasa2.gif" />
+    <Content Include="Image\sasa3.gif" />
+    <Content Include="Image\sasa4.gif" />
+    <Content Include="Image\star.bmp" />
+    <Content Include="Image\star.gif" />
+    <Content Include="Web.config" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\jquery-1.3.2.js" />
+    <Content Include="Scripts\jquery-1.3.2.min.js" />
+    <Content Include="Scripts\jquery-1.3.2-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.3.2.min-vsdoc.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Views\Account\ChangePassword.aspx" />
+    <Content Include="Views\Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Views\Account\Register.aspx" />
+    <Content Include="Views\Home\About.aspx" />
+    <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Views\Shared\Error.aspx" />
+    <Content Include="Views\Shared\LogOnUserControl.ascx" />
+    <Content Include="Views\Shared\Site.Master" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\Book\BookLinqConnection.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>BookLinqConnection1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\Book\BookLinqConnection.dbml.layout">
+      <DependentUpon>BookLinqConnection.dbml</DependentUpon>
+    </None>
+    <None Include="Models\User\UserLinqConnection.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>UserLinqConnection1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\User\UserLinqConnection.dbml.layout">
+      <DependentUpon>UserLinqConnection.dbml</DependentUpon>
+    </None>
+    <None Include="Views\Search\.svn\all-wcprops" />
+    <None Include="Views\Search\.svn\entries" />
+    <None Include="Views\Search\.svn\text-base\SearchResult.aspx.svn-base" />
+    <Content Include="Views\Account\Login.aspx" />
+    <Content Include="Views\Account\RegisterSuccess.aspx" />
+    <Content Include="Views\Book\BookIndex.aspx" />
+    <Content Include="Views\Book\Preview.aspx" />
+    <Content Include="Views\Book\Read.aspx" />
+    <Content Include="Views\Search\SearchResult.aspx" />
+    <Content Include="Views\Shared\Project.Master" />
+    <Content Include="Views\User\Edit.aspx" />
+    <Content Include="Views\User\User.aspx" />
+    <Content Include="Views\User\ViewPage1.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Search\.svn\prop-base\" />
+    <Folder Include="Views\Search\.svn\props\" />
+    <Folder Include="Views\Search\.svn\tmp\prop-base\" />
+    <Folder Include="Views\Search\.svn\tmp\props\" />
+    <Folder Include="Views\Search\.svn\tmp\text-base\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target> -->
+  <Target Name="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)\..\$(ProjectName)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60017</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

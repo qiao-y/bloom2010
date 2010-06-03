@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLOOM", "BLOOM\BLOOM.csproj", "{6F73F9AA-7B32-42F1-92C0-6244795A5454}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLOOM.Web", "BLOOM.Web\BLOOM.Web.csproj", "{D10C7910-FF5D-45CB-9AFE-3F16BAC37CEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLOOM.Web.Tests", "BLOOM.Web.Tests\BLOOM.Web.Tests.csproj", "{7C753999-E361-4E42-9D22-68F0482C37F8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F73F9AA-7B32-42F1-92C0-6244795A5454}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F73F9AA-7B32-42F1-92C0-6244795A5454}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F73F9AA-7B32-42F1-92C0-6244795A5454}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F73F9AA-7B32-42F1-92C0-6244795A5454}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D10C7910-FF5D-45CB-9AFE-3F16BAC37CEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D10C7910-FF5D-45CB-9AFE-3F16BAC37CEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D10C7910-FF5D-45CB-9AFE-3F16BAC37CEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D10C7910-FF5D-45CB-9AFE-3F16BAC37CEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C753999-E361-4E42-9D22-68F0482C37F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C753999-E361-4E42-9D22-68F0482C37F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C753999-E361-4E42-9D22-68F0482C37F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C753999-E361-4E42-9D22-68F0482C37F8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
