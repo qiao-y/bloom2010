@@ -1,0 +1,29 @@
+revision:
+
+*  将整个工程移植到Silverlight Web模版中
+注意：名空间有所变化，要在BLOOM后面加上.Web， 如原来的BLOOM.Models.User要变成BLOOM.Web.Models.User，这是因为使用了Silverlight模版的缘故。
+* 增加了AdministratorController.cs， GenenalInfo.cs，修改了UserRepository.cs
+* 首页上增加了动态广告
+* 增加了若干修改个人信息页面
+
+
+
+
+
+known issues:
+* 无法编译通过， 因为AdministratorController.cs有错误。
+* 注意编译器的警告，AdministratorController.cs中return View()后的语句无法访问，何意？
+---------------------------------请ZYY修改-----------------------------------------------
+* 在我的浏览器 Maxthon 2.5.7上页面布局仍然不正确。
+---------------------------------请CXC修改-----------------------------------------------
+
+---------------------------------请YJY将你的修改集成进去---------------------------------
+
+
+
+* 我再说一遍，请在每个文件前写上你的尊姓大名和日期。
+*           , 请在关键地方写注释。
+ 
+
+
+Cyber 16:58 2010/6/3
