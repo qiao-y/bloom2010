@@ -1,2 +1,0 @@
-D:\TDDOWNLOAD\BLOOM\BLOOM.Web\obj\Debug\ResolveAssemblyReference.cache
-D:\BLOOM_SVN\BLOOM.Web\obj\Debug\ResolveAssemblyReference.cache
