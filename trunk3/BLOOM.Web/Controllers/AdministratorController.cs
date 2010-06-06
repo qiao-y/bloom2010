@@ -138,7 +138,7 @@ namespace BLOOM.Web.Controllers
 
             //  found
             generalInfo.PersonalInfo.UserName = membership.aspnet_Users.UserName;
-            generalInfo.PersonalInfo.Age = membership.Age;
+            generalInfo.PersonalInfo.Age = membership.Age ?? 0;
             generalInfo.PersonalInfo.Occupation = membership.Occupation;
             generalInfo.PersonalInfo.password = membership.Password;
             generalInfo.PersonalInfo.PasswordQuestion = membership.PasswordQuestion;
@@ -202,7 +202,7 @@ namespace BLOOM.Web.Controllers
             
             //  found
             generalInfo.PersonalInfo.UserName = membership.aspnet_Users.UserName;
-            generalInfo.PersonalInfo.Age = membership.Age;
+            generalInfo.PersonalInfo.Age = membership.Age ?? 0;
             generalInfo.PersonalInfo.Occupation = membership.Occupation;
             generalInfo.PersonalInfo.password = membership.Password;
             generalInfo.PersonalInfo.PasswordQuestion = membership.PasswordQuestion;
