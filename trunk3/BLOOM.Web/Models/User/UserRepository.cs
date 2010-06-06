@@ -47,6 +47,11 @@ namespace BLOOM.Web.Models.User
             m_userDataContext.aspnet_AccountInfo.DeleteOnSubmit(theInfo);
         }
 
+        public void Delete(aspnet_Membership theMembership)
+        {
+            m_userDataContext.aspnet_Membership.DeleteOnSubmit(theMembership);
+        }
+
         public void Submit()
         {
             try

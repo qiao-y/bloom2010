@@ -1,3 +1,6 @@
+//Author: Zhou Yuanyuan
+//Date: 2010.6.6
+
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -31,7 +34,6 @@ namespace BLOOM.Web.Controllers
             ModelState.Add("Password", new ModelState() { Value = formValues.ToValueProvider()["Password"] });
             ModelState.Add("Confirmpassword", new ModelState() { Value = formValues.ToValueProvider()["Confirmpassword"] });
             ModelState.Add("EMail", new ModelState() { Value = formValues.ToValueProvider()["EMail"] });
-            return View();
             
             if (formValues["UserName"].Trim().Length == 0)
                 ModelState.AddModelError("UserName","用户名不能为空\n");
@@ -112,7 +114,7 @@ namespace BLOOM.Web.Controllers
         public ActionResult Delete(Guid uid)
         {
             UserRepository userRepository = new UserRepository();
-            aspnet_Membership membership = userRepository.GetUserPersonalInfo(guid);
+            aspnet_Membership membership = userRepository.GetUserPersonalInfo(uid);
             aspnet_AccountInfo accountInfo = userRepository.GetAccountInfo(uid);
             if (membership == null)
                 return View("NotFound");
@@ -124,7 +126,27 @@ namespace BLOOM.Web.Controllers
         [Authorize(Roles = "admin")]
         public ActionResult Edit(Guid uid)  // show the edit page
         {
-            Search(Guid);
+            UserRepository userRepository = new UserRepository();
+            aspnet_AccountInfo accountInfo = new aspnet_AccountInfo();
+            aspnet_Membership membership = new aspnet_Membership();
+            GenenalInfo generalInfo = new GenenalInfo();
+            membership = userRepository.GetUserPersonalInfo(uid);
+            accountInfo = userRepository.GetAccountInfo(uid);  // retrieve information
+
+            if (membership == null)
+                return View("NotFound");
+
+            //  found
+            generalInfo.PersonalInfo.UserName = membership.aspnet_Users.UserName;
+            generalInfo.PersonalInfo.Age = membership.Age;
+            generalInfo.PersonalInfo.Occupation = membership.Occupation;
+            generalInfo.PersonalInfo.password = membership.Password;
+            generalInfo.PersonalInfo.PasswordQuestion = membership.PasswordQuestion;
+            generalInfo.PersonalInfo.PasswordAnswer = membership.PasswordAnswer;
+            generalInfo.BalanceInfo.Balance = accountInfo.Balance;
+            generalInfo.BalanceInfo.MoneyPaid = accountInfo.MoneyPaid;
+
+            return View(generalInfo);
         }
 
         [AcceptVerbs(HttpVerbs.Post), Authorize(Roles = "admin")]
@@ -143,34 +165,20 @@ namespace BLOOM.Web.Controllers
                 return View("NotFound");
             
             //  found
-            personalInfo.UserName = membership.aspnet_Users.UserName;
-            personalInfo.Age = membership.Age;
-            personalInfo.Occupation = membership.Occupation;
-            personalInfo.password = membership.Password;
-            personalInfo.PasswordQuestion = membership.PasswordQuestion;
-            personalInfo.PasswordAnswer = membership.PasswordAnswer;
-            balanceInfo.Balance = accountInfo.Balance;
-            balanceInfo.MoneyPaid = accountInfo.MoneyPaid;
 
-            try
+            UpdateModel(personalInfo);
+            if (!personalInfo.IsValid())
             {
-                UpdateModel(personalInfo);
-                UpdateModel(balanceInfo);
-                userRepository.Submit();
-                return RedirectToAction("Details");  // This is a temporary solution.
+                List<PersonalInfoRuleViolation> errorList = personalInfo.GetViolations();
+                foreach (PersonalInfoRuleViolation item in errorList)
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
             }
-            catch
-            {
-                foreach (var issue in personalInfo.GetRuleViolations())
-                {
-                    ModelState.AddModelError(issue.PropertyName, issue.ErrorMessage);
-                }
-                foreach (var issue in balanceInfo.GetRuleViolations())
-                {
-                    ModelState.AddModelError(issue.PropertyName, issue.ErrorMessage);
-                }
-                return View(generalInfo);
-            }
+            UpdateModel(balanceInfo);
+            generalInfo.BalanceInfo = balanceInfo;
+            generalInfo.PersonalInfo = personalInfo;  //for view
+            userRepository.Submit();
+
+            return View(generalInfo);  // This is a temporary solution.
         }
 
         [Authorize(Roles = "admin")]
@@ -200,7 +208,7 @@ namespace BLOOM.Web.Controllers
             generalInfo.PersonalInfo.PasswordQuestion = membership.PasswordQuestion;
             generalInfo.PersonalInfo.PasswordAnswer = membership.PasswordAnswer;
             generalInfo.BalanceInfo.Balance = accountInfo.Balance;
-            generalInfo.BalanceInfo.MoneyPaid = accountInfo.MoneyPaid;
+            generalInfo.BalanceInfo.MoneyPaid = accountInfo.MoneyPaid; //for view
             
             return View(generalInfo);
         }
