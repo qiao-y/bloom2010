@@ -31,6 +31,12 @@ namespace BLOOM.Web.Controllers
             return View(theInfo);
         }
 
+        // YJY
+        public ActionResult Snapshot(int id)
+        {
+            byte[] myByte = m_bookRepository.GetBookInfo(id).Snapshot.ToArray();
+            return File(myByte, @"image/jpeg");
+        }
 
         [Authorize]
         public ActionResult Buy(int bookID)

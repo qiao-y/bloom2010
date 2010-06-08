@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
-<head runat="server">
+<head id="Head1" runat="server">
     <title>Login</title>
     <link href="../../Content/Project.css" rel="stylesheet" type="text/css" />
 </head>
@@ -16,7 +16,7 @@
             		   
             		    <td id="Login_Login">
             		         <div>
-                               <%= Html.ValidationSummary("用户名或密码不正确") %>
+                               <%= Html.ValidationSummary("信息有误！") %>
                               </div>
             		        <fieldset>
             		    
@@ -33,6 +33,14 @@
             		            <p>
             		                <%=Html.Password("Password") %>
             		                <%=Html.ValidationMessage("Password","*") %>
+            		            </p>
+            		            <p class="Left">
+            		                <label for ="ValidateCode">验证码： </label>
+            		                <img src="../Account/GetValidateCode" alt="验证码" />
+            		            </p>
+            		            
+            		            <p>
+            		                <%=Html.TextBox("ValidateCode") %>
             		            </p>
             		            <p>
             		                <input type="submit" value="登陆"/>

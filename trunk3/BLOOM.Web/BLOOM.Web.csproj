@@ -62,6 +62,7 @@
     <Compile Include="Controllers\AdministratorController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SnapshotTestController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -78,6 +79,7 @@
     </Compile>
     <Compile Include="Models\Book\BookPageRepository.cs" />
     <Compile Include="Models\Book\BookRepository.cs" />
+    <Compile Include="Models\Book\StoreSnapshot.cs" />
     <Compile Include="Models\User\BalanceInfo.cs" />
     <Compile Include="Models\User\GenenalInfo.cs" />
     <Compile Include="Models\User\PersonalInfo.cs" />
@@ -88,6 +90,7 @@
       <DependentUpon>UserLinqConnection.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\User\UserRepository.cs" />
+    <Compile Include="Models\User\ValidateCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +198,7 @@
     <Content Include="Views\Book\Read.aspx" />
     <Content Include="Views\Search\SearchResult.aspx" />
     <Content Include="Views\Shared\Project.Master" />
+    <Content Include="Views\SnapshotTest\Index.aspx" />
     <Content Include="Views\User\Edit.aspx" />
     <Content Include="Views\User\User.aspx" />
     <Content Include="Views\User\ViewPage1.aspx" />

@@ -4,6 +4,9 @@
 //Revised by: QIAO Yu
 //Date: 2010.5.13
 
+//Revised by: Yang Juyuan
+//Date:2010.6.7
+//Only change the login part, add the validate code
 
 using System;
 using System.Collections.Generic;
@@ -153,21 +156,42 @@ namespace BLOOM.Web.Controllers
             return RedirectToAction("../Home");
         }
 
+        public ActionResult GetValidateCode()
+        {
+            ValidateCode vCode = new ValidateCode();
+            string code = vCode.CreateValidateCode(4);
+            Session["ValidateCode"] = code;
+            byte[] bytes = vCode.CreateValidateGraphic(code);
+            return File(bytes, @"image/jpeg");
+        }
+
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Login(FormCollection formValues)
         {
-            string userName = formValues["Name"], password = formValues["Password"];
+            string userName = formValues["Name"], password = formValues["Password"], validateCode = formValues["ValidateCode"];
+            bool validateCodeMatched = true;
 
             //add model state manually to suppress a run-time error
+            ModelState.Add("ValidateCode", new ModelState() { Value = formValues.ToValueProvider()["ValidateCode"] });
             ModelState.Add("Name", new ModelState() { Value = formValues.ToValueProvider()["Name"] });
             ModelState.Add("password", new ModelState() { Value = formValues.ToValueProvider()["password"] });
+
+            if (validateCode != Session["ValidateCode"].ToString())
+            {
+                ModelState.AddModelError("ValidateCode", "验证码错误！");
+                validateCodeMatched = false;
+            }
             if (Membership.ValidateUser(userName, password))
             {
-                Session["UserName"] = userName;
-                FormsAuthentication.SetAuthCookie(userName, true);  //set cookies for the logged in user
-                return RedirectToAction("../Home");
+                if (validateCodeMatched == true)
+                {
+                    Session["UserName"] = userName;
+                    FormsAuthentication.SetAuthCookie(userName, true);  //set cookies for the logged in user
+                    return RedirectToAction("../Home");
+                }
             }
-            ModelState.AddModelError("Name", "用户名或密码错误");
+            else
+                ModelState.AddModelError("Name", "用户名或密码错误");
             return View();    //not logged in
         }
 

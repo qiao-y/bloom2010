@@ -14,6 +14,7 @@
         <asp:Image ID="bookinfopic" runat="server" ImageUrl="~/Image/8.jpg" />
         <p>
             <label for="Snapshot">Snapshot:</label>
+            <img src="../Snapshot/<%= Model.BookId %>" alt="snapshot" />
         </p>
         <p>
             <%=Model.Title%>

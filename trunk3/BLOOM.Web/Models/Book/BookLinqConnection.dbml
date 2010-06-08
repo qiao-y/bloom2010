@@ -10,9 +10,9 @@
       <Column Name="MobileAlias" Type="System.String" DbType="NVarChar(16)" CanBeNull="true" />
       <Column Name="IsAnonymous" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="LastActivityDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="aspnet_Users_book_Remarks" Member="book_Remarks" OtherKey="UserId" Type="book_Remarks" />
-      <Association Name="aspnet_Users_book_BooksViewed" Member="book_BooksViewed" OtherKey="UserId" Type="book_BooksViewed" />
-      <Association Name="aspnet_Users_book_BookBought" Member="book_BookBought" OtherKey="UserId" Type="book_BookBought" />
+      <Association Name="aspnet_Users_book_Remarks" Member="book_Remarks" ThisKey="UserId" OtherKey="UserId" Type="book_Remarks" />
+      <Association Name="aspnet_Users_book_BooksViewed" Member="book_BooksViewed" ThisKey="UserId" OtherKey="UserId" Type="book_BooksViewed" />
+      <Association Name="aspnet_Users_book_BookBought" Member="book_BookBought" ThisKey="UserId" OtherKey="UserId" Type="book_BookBought" />
     </Type>
   </Table>
   <Table Name="dbo.book_Remarks" Member="book_Remarks">
@@ -22,8 +22,8 @@
       <Column Name="BookId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="RemarkDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Remarks" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Association Name="aspnet_Users_book_Remarks" Member="aspnet_Users" ThisKey="UserId" Type="aspnet_Users" IsForeignKey="true" />
-      <Association Name="book_BookInfo_book_Remarks" Member="book_BookInfo" ThisKey="BookId" Type="book_BookInfo" IsForeignKey="true" />
+      <Association Name="aspnet_Users_book_Remarks" Member="aspnet_Users" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Users" IsForeignKey="true" />
+      <Association Name="book_BookInfo_book_Remarks" Member="book_BookInfo" ThisKey="BookId" OtherKey="BookId" Type="book_BookInfo" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.book_Categories" Member="book_Categories">
@@ -31,7 +31,7 @@
       <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="CategoryName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
       <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Association Name="book_Categories_book_BooksBelong" Member="book_BooksBelong" OtherKey="CategoryId" Type="book_BooksBelong" />
+      <Association Name="book_Categories_book_BooksBelong" Member="book_BooksBelong" ThisKey="CategoryId" OtherKey="CategoryId" Type="book_BooksBelong" />
     </Type>
   </Table>
   <Table Name="dbo.book_BooksViewed" Member="book_BooksViewed">
@@ -40,16 +40,16 @@
       <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="ViewTimes" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="LastViewDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="aspnet_Users_book_BooksViewed" Member="aspnet_Users" ThisKey="UserId" Type="aspnet_Users" IsForeignKey="true" />
-      <Association Name="book_BookInfo_book_BooksViewed" Member="book_BookInfo" ThisKey="BookId" Type="book_BookInfo" IsForeignKey="true" />
+      <Association Name="aspnet_Users_book_BooksViewed" Member="aspnet_Users" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Users" IsForeignKey="true" />
+      <Association Name="book_BookInfo_book_BooksViewed" Member="book_BookInfo" ThisKey="BookId" OtherKey="BookId" Type="book_BookInfo" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.book_BooksBelong" Member="book_BooksBelong">
     <Type Name="book_BooksBelong">
       <Column Name="BookId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="book_Categories_book_BooksBelong" Member="book_Categories" ThisKey="CategoryId" Type="book_Categories" IsForeignKey="true" />
-      <Association Name="book_BookInfo_book_BooksBelong" Member="book_BookInfo" ThisKey="BookId" Type="book_BookInfo" IsForeignKey="true" />
+      <Association Name="book_Categories_book_BooksBelong" Member="book_Categories" ThisKey="CategoryId" OtherKey="CategoryId" Type="book_Categories" IsForeignKey="true" />
+      <Association Name="book_BookInfo_book_BooksBelong" Member="book_BookInfo" ThisKey="BookId" OtherKey="BookId" Type="book_BookInfo" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.book_BookBought" Member="book_BookBought">
@@ -59,7 +59,7 @@
       <Column Name="MoneyPaid" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
       <Column Name="PurchaseDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Association Name="aspnet_Users_book_BookBought" Member="aspnet_Users" ThisKey="UserId" Type="aspnet_Users" IsForeignKey="true" />
+      <Association Name="aspnet_Users_book_BookBought" Member="aspnet_Users" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Users" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.book_BookInfo" Member="book_BookInfo">
@@ -73,12 +73,12 @@
       <Column Name="UserScored" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TotalScore" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Price" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Snapshot" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
       <Column Name="Author" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
       <Column Name="Pages" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="book_BookInfo_book_Remarks" Member="book_Remarks" OtherKey="BookId" Type="book_Remarks" />
-      <Association Name="book_BookInfo_book_BooksViewed" Member="book_BooksViewed" OtherKey="BookId" Type="book_BooksViewed" />
-      <Association Name="book_BookInfo_book_BooksBelong" Member="book_BooksBelong" OtherKey="BookId" Type="book_BooksBelong" />
+      <Column Name="Snapshot" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="book_BookInfo_book_Remarks" Member="book_Remarks" ThisKey="BookId" OtherKey="BookId" Type="book_Remarks" />
+      <Association Name="book_BookInfo_book_BooksViewed" Member="book_BooksViewed" ThisKey="BookId" OtherKey="BookId" Type="book_BooksViewed" />
+      <Association Name="book_BookInfo_book_BooksBelong" Member="book_BooksBelong" ThisKey="BookId" OtherKey="BookId" Type="book_BooksBelong" />
     </Type>
   </Table>
 </Database>
