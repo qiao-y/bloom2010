@@ -30,27 +30,30 @@ namespace BLOOM.Web.Models.Book
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void Insertaspnet_Users(aspnet_Users instance);
-    partial void Updateaspnet_Users(aspnet_Users instance);
-    partial void Deleteaspnet_Users(aspnet_Users instance);
-    partial void Insertbook_Remarks(book_Remarks instance);
-    partial void Updatebook_Remarks(book_Remarks instance);
-    partial void Deletebook_Remarks(book_Remarks instance);
-    partial void Insertbook_Categories(book_Categories instance);
-    partial void Updatebook_Categories(book_Categories instance);
-    partial void Deletebook_Categories(book_Categories instance);
-    partial void Insertbook_BooksViewed(book_BooksViewed instance);
-    partial void Updatebook_BooksViewed(book_BooksViewed instance);
-    partial void Deletebook_BooksViewed(book_BooksViewed instance);
-    partial void Insertbook_BooksBelong(book_BooksBelong instance);
-    partial void Updatebook_BooksBelong(book_BooksBelong instance);
-    partial void Deletebook_BooksBelong(book_BooksBelong instance);
-    partial void Insertbook_BookBought(book_BookBought instance);
-    partial void Updatebook_BookBought(book_BookBought instance);
-    partial void Deletebook_BookBought(book_BookBought instance);
     partial void Insertbook_BookInfo(book_BookInfo instance);
     partial void Updatebook_BookInfo(book_BookInfo instance);
     partial void Deletebook_BookInfo(book_BookInfo instance);
+    partial void Insertaspnet_Users(aspnet_Users instance);
+    partial void Updateaspnet_Users(aspnet_Users instance);
+    partial void Deleteaspnet_Users(aspnet_Users instance);
+    partial void Insertbook_BookBought(book_BookBought instance);
+    partial void Updatebook_BookBought(book_BookBought instance);
+    partial void Deletebook_BookBought(book_BookBought instance);
+    partial void Insertbook_BooksBelong(book_BooksBelong instance);
+    partial void Updatebook_BooksBelong(book_BooksBelong instance);
+    partial void Deletebook_BooksBelong(book_BooksBelong instance);
+    partial void Insertbook_Bookmarks(book_Bookmarks instance);
+    partial void Updatebook_Bookmarks(book_Bookmarks instance);
+    partial void Deletebook_Bookmarks(book_Bookmarks instance);
+    partial void Insertbook_Categories(book_Categories instance);
+    partial void Updatebook_Categories(book_Categories instance);
+    partial void Deletebook_Categories(book_Categories instance);
+    partial void Insertbook_Remarks(book_Remarks instance);
+    partial void Updatebook_Remarks(book_Remarks instance);
+    partial void Deletebook_Remarks(book_Remarks instance);
+    partial void Insertbook_BooksViewed(book_BooksViewed instance);
+    partial void Updatebook_BooksViewed(book_BooksViewed instance);
+    partial void Deletebook_BooksViewed(book_BooksViewed instance);
     #endregion
 		
 		public BookLinqConnecionDataContext() : 
@@ -83,43 +86,19 @@ namespace BLOOM.Web.Models.Book
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<book_BookInfo> book_BookInfo
+		{
+			get
+			{
+				return this.GetTable<book_BookInfo>();
+			}
+		}
+		
 		public System.Data.Linq.Table<aspnet_Users> aspnet_Users
 		{
 			get
 			{
 				return this.GetTable<aspnet_Users>();
-			}
-		}
-		
-		public System.Data.Linq.Table<book_Remarks> book_Remarks
-		{
-			get
-			{
-				return this.GetTable<book_Remarks>();
-			}
-		}
-		
-		public System.Data.Linq.Table<book_Categories> book_Categories
-		{
-			get
-			{
-				return this.GetTable<book_Categories>();
-			}
-		}
-		
-		public System.Data.Linq.Table<book_BooksViewed> book_BooksViewed
-		{
-			get
-			{
-				return this.GetTable<book_BooksViewed>();
-			}
-		}
-		
-		public System.Data.Linq.Table<book_BooksBelong> book_BooksBelong
-		{
-			get
-			{
-				return this.GetTable<book_BooksBelong>();
 			}
 		}
 		
@@ -131,1262 +110,43 @@ namespace BLOOM.Web.Models.Book
 			}
 		}
 		
-		public System.Data.Linq.Table<book_BookInfo> book_BookInfo
+		public System.Data.Linq.Table<book_BooksBelong> book_BooksBelong
 		{
 			get
 			{
-				return this.GetTable<book_BookInfo>();
+				return this.GetTable<book_BooksBelong>();
 			}
 		}
-	}
-	
-	[Table(Name="dbo.aspnet_Users")]
-	public partial class aspnet_Users : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _ApplicationId;
-		
-		private System.Guid _UserId;
-		
-		private string _UserName;
-		
-		private string _LoweredUserName;
-		
-		private string _MobileAlias;
-		
-		private bool _IsAnonymous;
-		
-		private System.DateTime _LastActivityDate;
-		
-		private EntitySet<book_Remarks> _book_Remarks;
-		
-		private EntitySet<book_BooksViewed> _book_BooksViewed;
-		
-		private EntitySet<book_BookBought> _book_BookBought;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnApplicationIdChanging(System.Guid value);
-    partial void OnApplicationIdChanged();
-    partial void OnUserIdChanging(System.Guid value);
-    partial void OnUserIdChanged();
-    partial void OnUserNameChanging(string value);
-    partial void OnUserNameChanged();
-    partial void OnLoweredUserNameChanging(string value);
-    partial void OnLoweredUserNameChanged();
-    partial void OnMobileAliasChanging(string value);
-    partial void OnMobileAliasChanged();
-    partial void OnIsAnonymousChanging(bool value);
-    partial void OnIsAnonymousChanged();
-    partial void OnLastActivityDateChanging(System.DateTime value);
-    partial void OnLastActivityDateChanged();
-    #endregion
-		
-		public aspnet_Users()
-		{
-			this._book_Remarks = new EntitySet<book_Remarks>(new Action<book_Remarks>(this.attach_book_Remarks), new Action<book_Remarks>(this.detach_book_Remarks));
-			this._book_BooksViewed = new EntitySet<book_BooksViewed>(new Action<book_BooksViewed>(this.attach_book_BooksViewed), new Action<book_BooksViewed>(this.detach_book_BooksViewed));
-			this._book_BookBought = new EntitySet<book_BookBought>(new Action<book_BookBought>(this.attach_book_BookBought), new Action<book_BookBought>(this.detach_book_BookBought));
-			OnCreated();
-		}
-		
-		[Column(Storage="_ApplicationId", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid ApplicationId
+		public System.Data.Linq.Table<book_Bookmarks> book_Bookmarks
 		{
 			get
 			{
-				return this._ApplicationId;
-			}
-			set
-			{
-				if ((this._ApplicationId != value))
-				{
-					this.OnApplicationIdChanging(value);
-					this.SendPropertyChanging();
-					this._ApplicationId = value;
-					this.SendPropertyChanged("ApplicationId");
-					this.OnApplicationIdChanged();
-				}
+				return this.GetTable<book_Bookmarks>();
 			}
 		}
 		
-		[Column(Storage="_UserId", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid UserId
+		public System.Data.Linq.Table<book_Categories> book_Categories
 		{
 			get
 			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					this.OnUserIdChanging(value);
-					this.SendPropertyChanging();
-					this._UserId = value;
-					this.SendPropertyChanged("UserId");
-					this.OnUserIdChanged();
-				}
+				return this.GetTable<book_Categories>();
 			}
 		}
 		
-		[Column(Storage="_UserName", DbType="NVarChar(256) NOT NULL", CanBeNull=false)]
-		public string UserName
+		public System.Data.Linq.Table<book_Remarks> book_Remarks
 		{
 			get
 			{
-				return this._UserName;
-			}
-			set
-			{
-				if ((this._UserName != value))
-				{
-					this.OnUserNameChanging(value);
-					this.SendPropertyChanging();
-					this._UserName = value;
-					this.SendPropertyChanged("UserName");
-					this.OnUserNameChanged();
-				}
+				return this.GetTable<book_Remarks>();
 			}
 		}
 		
-		[Column(Storage="_LoweredUserName", DbType="NVarChar(256) NOT NULL", CanBeNull=false)]
-		public string LoweredUserName
+		public System.Data.Linq.Table<book_BooksViewed> book_BooksViewed
 		{
 			get
 			{
-				return this._LoweredUserName;
-			}
-			set
-			{
-				if ((this._LoweredUserName != value))
-				{
-					this.OnLoweredUserNameChanging(value);
-					this.SendPropertyChanging();
-					this._LoweredUserName = value;
-					this.SendPropertyChanged("LoweredUserName");
-					this.OnLoweredUserNameChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_MobileAlias", DbType="NVarChar(16)")]
-		public string MobileAlias
-		{
-			get
-			{
-				return this._MobileAlias;
-			}
-			set
-			{
-				if ((this._MobileAlias != value))
-				{
-					this.OnMobileAliasChanging(value);
-					this.SendPropertyChanging();
-					this._MobileAlias = value;
-					this.SendPropertyChanged("MobileAlias");
-					this.OnMobileAliasChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_IsAnonymous", DbType="Bit NOT NULL")]
-		public bool IsAnonymous
-		{
-			get
-			{
-				return this._IsAnonymous;
-			}
-			set
-			{
-				if ((this._IsAnonymous != value))
-				{
-					this.OnIsAnonymousChanging(value);
-					this.SendPropertyChanging();
-					this._IsAnonymous = value;
-					this.SendPropertyChanged("IsAnonymous");
-					this.OnIsAnonymousChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_LastActivityDate", DbType="DateTime NOT NULL")]
-		public System.DateTime LastActivityDate
-		{
-			get
-			{
-				return this._LastActivityDate;
-			}
-			set
-			{
-				if ((this._LastActivityDate != value))
-				{
-					this.OnLastActivityDateChanging(value);
-					this.SendPropertyChanging();
-					this._LastActivityDate = value;
-					this.SendPropertyChanged("LastActivityDate");
-					this.OnLastActivityDateChanged();
-				}
-			}
-		}
-		
-		[Association(Name="aspnet_Users_book_Remarks", Storage="_book_Remarks", ThisKey="UserId", OtherKey="UserId")]
-		public EntitySet<book_Remarks> book_Remarks
-		{
-			get
-			{
-				return this._book_Remarks;
-			}
-			set
-			{
-				this._book_Remarks.Assign(value);
-			}
-		}
-		
-		[Association(Name="aspnet_Users_book_BooksViewed", Storage="_book_BooksViewed", ThisKey="UserId", OtherKey="UserId")]
-		public EntitySet<book_BooksViewed> book_BooksViewed
-		{
-			get
-			{
-				return this._book_BooksViewed;
-			}
-			set
-			{
-				this._book_BooksViewed.Assign(value);
-			}
-		}
-		
-		[Association(Name="aspnet_Users_book_BookBought", Storage="_book_BookBought", ThisKey="UserId", OtherKey="UserId")]
-		public EntitySet<book_BookBought> book_BookBought
-		{
-			get
-			{
-				return this._book_BookBought;
-			}
-			set
-			{
-				this._book_BookBought.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_book_Remarks(book_Remarks entity)
-		{
-			this.SendPropertyChanging();
-			entity.aspnet_Users = this;
-		}
-		
-		private void detach_book_Remarks(book_Remarks entity)
-		{
-			this.SendPropertyChanging();
-			entity.aspnet_Users = null;
-		}
-		
-		private void attach_book_BooksViewed(book_BooksViewed entity)
-		{
-			this.SendPropertyChanging();
-			entity.aspnet_Users = this;
-		}
-		
-		private void detach_book_BooksViewed(book_BooksViewed entity)
-		{
-			this.SendPropertyChanging();
-			entity.aspnet_Users = null;
-		}
-		
-		private void attach_book_BookBought(book_BookBought entity)
-		{
-			this.SendPropertyChanging();
-			entity.aspnet_Users = this;
-		}
-		
-		private void detach_book_BookBought(book_BookBought entity)
-		{
-			this.SendPropertyChanging();
-			entity.aspnet_Users = null;
-		}
-	}
-	
-	[Table(Name="dbo.book_Remarks")]
-	public partial class book_Remarks : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _RemarkId;
-		
-		private System.Nullable<System.Guid> _UserId;
-		
-		private System.Nullable<int> _BookId;
-		
-		private System.Nullable<System.DateTime> _RemarkDate;
-		
-		private string _Remarks;
-		
-		private EntityRef<aspnet_Users> _aspnet_Users;
-		
-		private EntityRef<book_BookInfo> _book_BookInfo;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnRemarkIdChanging(int value);
-    partial void OnRemarkIdChanged();
-    partial void OnUserIdChanging(System.Nullable<System.Guid> value);
-    partial void OnUserIdChanged();
-    partial void OnBookIdChanging(System.Nullable<int> value);
-    partial void OnBookIdChanged();
-    partial void OnRemarkDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnRemarkDateChanged();
-    partial void OnRemarksChanging(string value);
-    partial void OnRemarksChanged();
-    #endregion
-		
-		public book_Remarks()
-		{
-			this._aspnet_Users = default(EntityRef<aspnet_Users>);
-			this._book_BookInfo = default(EntityRef<book_BookInfo>);
-			OnCreated();
-		}
-		
-		[Column(Storage="_RemarkId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int RemarkId
-		{
-			get
-			{
-				return this._RemarkId;
-			}
-			set
-			{
-				if ((this._RemarkId != value))
-				{
-					this.OnRemarkIdChanging(value);
-					this.SendPropertyChanging();
-					this._RemarkId = value;
-					this.SendPropertyChanged("RemarkId");
-					this.OnRemarkIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_UserId", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> UserId
-		{
-			get
-			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					if (this._aspnet_Users.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnUserIdChanging(value);
-					this.SendPropertyChanging();
-					this._UserId = value;
-					this.SendPropertyChanged("UserId");
-					this.OnUserIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_BookId", DbType="Int")]
-		public System.Nullable<int> BookId
-		{
-			get
-			{
-				return this._BookId;
-			}
-			set
-			{
-				if ((this._BookId != value))
-				{
-					if (this._book_BookInfo.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBookIdChanging(value);
-					this.SendPropertyChanging();
-					this._BookId = value;
-					this.SendPropertyChanged("BookId");
-					this.OnBookIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_RemarkDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> RemarkDate
-		{
-			get
-			{
-				return this._RemarkDate;
-			}
-			set
-			{
-				if ((this._RemarkDate != value))
-				{
-					this.OnRemarkDateChanging(value);
-					this.SendPropertyChanging();
-					this._RemarkDate = value;
-					this.SendPropertyChanged("RemarkDate");
-					this.OnRemarkDateChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Remarks", DbType="NVarChar(MAX)")]
-		public string Remarks
-		{
-			get
-			{
-				return this._Remarks;
-			}
-			set
-			{
-				if ((this._Remarks != value))
-				{
-					this.OnRemarksChanging(value);
-					this.SendPropertyChanging();
-					this._Remarks = value;
-					this.SendPropertyChanged("Remarks");
-					this.OnRemarksChanged();
-				}
-			}
-		}
-		
-		[Association(Name="aspnet_Users_book_Remarks", Storage="_aspnet_Users", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
-		public aspnet_Users aspnet_Users
-		{
-			get
-			{
-				return this._aspnet_Users.Entity;
-			}
-			set
-			{
-				aspnet_Users previousValue = this._aspnet_Users.Entity;
-				if (((previousValue != value) 
-							|| (this._aspnet_Users.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._aspnet_Users.Entity = null;
-						previousValue.book_Remarks.Remove(this);
-					}
-					this._aspnet_Users.Entity = value;
-					if ((value != null))
-					{
-						value.book_Remarks.Add(this);
-						this._UserId = value.UserId;
-					}
-					else
-					{
-						this._UserId = default(Nullable<System.Guid>);
-					}
-					this.SendPropertyChanged("aspnet_Users");
-				}
-			}
-		}
-		
-		[Association(Name="book_BookInfo_book_Remarks", Storage="_book_BookInfo", ThisKey="BookId", OtherKey="BookId", IsForeignKey=true)]
-		public book_BookInfo book_BookInfo
-		{
-			get
-			{
-				return this._book_BookInfo.Entity;
-			}
-			set
-			{
-				book_BookInfo previousValue = this._book_BookInfo.Entity;
-				if (((previousValue != value) 
-							|| (this._book_BookInfo.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._book_BookInfo.Entity = null;
-						previousValue.book_Remarks.Remove(this);
-					}
-					this._book_BookInfo.Entity = value;
-					if ((value != null))
-					{
-						value.book_Remarks.Add(this);
-						this._BookId = value.BookId;
-					}
-					else
-					{
-						this._BookId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("book_BookInfo");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[Table(Name="dbo.book_Categories")]
-	public partial class book_Categories : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _CategoryId;
-		
-		private string _CategoryName;
-		
-		private string _Description;
-		
-		private EntitySet<book_BooksBelong> _book_BooksBelong;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCategoryIdChanging(int value);
-    partial void OnCategoryIdChanged();
-    partial void OnCategoryNameChanging(string value);
-    partial void OnCategoryNameChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    #endregion
-		
-		public book_Categories()
-		{
-			this._book_BooksBelong = new EntitySet<book_BooksBelong>(new Action<book_BooksBelong>(this.attach_book_BooksBelong), new Action<book_BooksBelong>(this.detach_book_BooksBelong));
-			OnCreated();
-		}
-		
-		[Column(Storage="_CategoryId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int CategoryId
-		{
-			get
-			{
-				return this._CategoryId;
-			}
-			set
-			{
-				if ((this._CategoryId != value))
-				{
-					this.OnCategoryIdChanging(value);
-					this.SendPropertyChanging();
-					this._CategoryId = value;
-					this.SendPropertyChanged("CategoryId");
-					this.OnCategoryIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_CategoryName", DbType="NVarChar(256)")]
-		public string CategoryName
-		{
-			get
-			{
-				return this._CategoryName;
-			}
-			set
-			{
-				if ((this._CategoryName != value))
-				{
-					this.OnCategoryNameChanging(value);
-					this.SendPropertyChanging();
-					this._CategoryName = value;
-					this.SendPropertyChanged("CategoryName");
-					this.OnCategoryNameChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Description", DbType="NVarChar(MAX)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[Association(Name="book_Categories_book_BooksBelong", Storage="_book_BooksBelong", ThisKey="CategoryId", OtherKey="CategoryId")]
-		public EntitySet<book_BooksBelong> book_BooksBelong
-		{
-			get
-			{
-				return this._book_BooksBelong;
-			}
-			set
-			{
-				this._book_BooksBelong.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_book_BooksBelong(book_BooksBelong entity)
-		{
-			this.SendPropertyChanging();
-			entity.book_Categories = this;
-		}
-		
-		private void detach_book_BooksBelong(book_BooksBelong entity)
-		{
-			this.SendPropertyChanging();
-			entity.book_Categories = null;
-		}
-	}
-	
-	[Table(Name="dbo.book_BooksViewed")]
-	public partial class book_BooksViewed : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _BookId;
-		
-		private System.Guid _UserId;
-		
-		private System.Nullable<int> _ViewTimes;
-		
-		private System.Nullable<System.DateTime> _LastViewDate;
-		
-		private EntityRef<aspnet_Users> _aspnet_Users;
-		
-		private EntityRef<book_BookInfo> _book_BookInfo;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnBookIdChanging(int value);
-    partial void OnBookIdChanged();
-    partial void OnUserIdChanging(System.Guid value);
-    partial void OnUserIdChanged();
-    partial void OnViewTimesChanging(System.Nullable<int> value);
-    partial void OnViewTimesChanged();
-    partial void OnLastViewDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnLastViewDateChanged();
-    #endregion
-		
-		public book_BooksViewed()
-		{
-			this._aspnet_Users = default(EntityRef<aspnet_Users>);
-			this._book_BookInfo = default(EntityRef<book_BookInfo>);
-			OnCreated();
-		}
-		
-		[Column(Storage="_BookId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int BookId
-		{
-			get
-			{
-				return this._BookId;
-			}
-			set
-			{
-				if ((this._BookId != value))
-				{
-					if (this._book_BookInfo.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBookIdChanging(value);
-					this.SendPropertyChanging();
-					this._BookId = value;
-					this.SendPropertyChanged("BookId");
-					this.OnBookIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_UserId", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid UserId
-		{
-			get
-			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					if (this._aspnet_Users.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnUserIdChanging(value);
-					this.SendPropertyChanging();
-					this._UserId = value;
-					this.SendPropertyChanged("UserId");
-					this.OnUserIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_ViewTimes", DbType="Int")]
-		public System.Nullable<int> ViewTimes
-		{
-			get
-			{
-				return this._ViewTimes;
-			}
-			set
-			{
-				if ((this._ViewTimes != value))
-				{
-					this.OnViewTimesChanging(value);
-					this.SendPropertyChanging();
-					this._ViewTimes = value;
-					this.SendPropertyChanged("ViewTimes");
-					this.OnViewTimesChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_LastViewDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> LastViewDate
-		{
-			get
-			{
-				return this._LastViewDate;
-			}
-			set
-			{
-				if ((this._LastViewDate != value))
-				{
-					this.OnLastViewDateChanging(value);
-					this.SendPropertyChanging();
-					this._LastViewDate = value;
-					this.SendPropertyChanged("LastViewDate");
-					this.OnLastViewDateChanged();
-				}
-			}
-		}
-		
-		[Association(Name="aspnet_Users_book_BooksViewed", Storage="_aspnet_Users", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
-		public aspnet_Users aspnet_Users
-		{
-			get
-			{
-				return this._aspnet_Users.Entity;
-			}
-			set
-			{
-				aspnet_Users previousValue = this._aspnet_Users.Entity;
-				if (((previousValue != value) 
-							|| (this._aspnet_Users.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._aspnet_Users.Entity = null;
-						previousValue.book_BooksViewed.Remove(this);
-					}
-					this._aspnet_Users.Entity = value;
-					if ((value != null))
-					{
-						value.book_BooksViewed.Add(this);
-						this._UserId = value.UserId;
-					}
-					else
-					{
-						this._UserId = default(System.Guid);
-					}
-					this.SendPropertyChanged("aspnet_Users");
-				}
-			}
-		}
-		
-		[Association(Name="book_BookInfo_book_BooksViewed", Storage="_book_BookInfo", ThisKey="BookId", OtherKey="BookId", IsForeignKey=true)]
-		public book_BookInfo book_BookInfo
-		{
-			get
-			{
-				return this._book_BookInfo.Entity;
-			}
-			set
-			{
-				book_BookInfo previousValue = this._book_BookInfo.Entity;
-				if (((previousValue != value) 
-							|| (this._book_BookInfo.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._book_BookInfo.Entity = null;
-						previousValue.book_BooksViewed.Remove(this);
-					}
-					this._book_BookInfo.Entity = value;
-					if ((value != null))
-					{
-						value.book_BooksViewed.Add(this);
-						this._BookId = value.BookId;
-					}
-					else
-					{
-						this._BookId = default(int);
-					}
-					this.SendPropertyChanged("book_BookInfo");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[Table(Name="dbo.book_BooksBelong")]
-	public partial class book_BooksBelong : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _BookId;
-		
-		private int _CategoryId;
-		
-		private EntityRef<book_Categories> _book_Categories;
-		
-		private EntityRef<book_BookInfo> _book_BookInfo;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnBookIdChanging(int value);
-    partial void OnBookIdChanged();
-    partial void OnCategoryIdChanging(int value);
-    partial void OnCategoryIdChanged();
-    #endregion
-		
-		public book_BooksBelong()
-		{
-			this._book_Categories = default(EntityRef<book_Categories>);
-			this._book_BookInfo = default(EntityRef<book_BookInfo>);
-			OnCreated();
-		}
-		
-		[Column(Storage="_BookId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int BookId
-		{
-			get
-			{
-				return this._BookId;
-			}
-			set
-			{
-				if ((this._BookId != value))
-				{
-					if (this._book_BookInfo.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBookIdChanging(value);
-					this.SendPropertyChanging();
-					this._BookId = value;
-					this.SendPropertyChanged("BookId");
-					this.OnBookIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_CategoryId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int CategoryId
-		{
-			get
-			{
-				return this._CategoryId;
-			}
-			set
-			{
-				if ((this._CategoryId != value))
-				{
-					if (this._book_Categories.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCategoryIdChanging(value);
-					this.SendPropertyChanging();
-					this._CategoryId = value;
-					this.SendPropertyChanged("CategoryId");
-					this.OnCategoryIdChanged();
-				}
-			}
-		}
-		
-		[Association(Name="book_Categories_book_BooksBelong", Storage="_book_Categories", ThisKey="CategoryId", OtherKey="CategoryId", IsForeignKey=true)]
-		public book_Categories book_Categories
-		{
-			get
-			{
-				return this._book_Categories.Entity;
-			}
-			set
-			{
-				book_Categories previousValue = this._book_Categories.Entity;
-				if (((previousValue != value) 
-							|| (this._book_Categories.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._book_Categories.Entity = null;
-						previousValue.book_BooksBelong.Remove(this);
-					}
-					this._book_Categories.Entity = value;
-					if ((value != null))
-					{
-						value.book_BooksBelong.Add(this);
-						this._CategoryId = value.CategoryId;
-					}
-					else
-					{
-						this._CategoryId = default(int);
-					}
-					this.SendPropertyChanged("book_Categories");
-				}
-			}
-		}
-		
-		[Association(Name="book_BookInfo_book_BooksBelong", Storage="_book_BookInfo", ThisKey="BookId", OtherKey="BookId", IsForeignKey=true)]
-		public book_BookInfo book_BookInfo
-		{
-			get
-			{
-				return this._book_BookInfo.Entity;
-			}
-			set
-			{
-				book_BookInfo previousValue = this._book_BookInfo.Entity;
-				if (((previousValue != value) 
-							|| (this._book_BookInfo.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._book_BookInfo.Entity = null;
-						previousValue.book_BooksBelong.Remove(this);
-					}
-					this._book_BookInfo.Entity = value;
-					if ((value != null))
-					{
-						value.book_BooksBelong.Add(this);
-						this._BookId = value.BookId;
-					}
-					else
-					{
-						this._BookId = default(int);
-					}
-					this.SendPropertyChanged("book_BookInfo");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[Table(Name="dbo.book_BookBought")]
-	public partial class book_BookBought : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _UserId;
-		
-		private int _BookId;
-		
-		private decimal _MoneyPaid;
-		
-		private System.Nullable<System.DateTime> _PurchaseDate;
-		
-		private int _Id;
-		
-		private EntityRef<aspnet_Users> _aspnet_Users;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUserIdChanging(System.Guid value);
-    partial void OnUserIdChanged();
-    partial void OnBookIdChanging(int value);
-    partial void OnBookIdChanged();
-    partial void OnMoneyPaidChanging(decimal value);
-    partial void OnMoneyPaidChanged();
-    partial void OnPurchaseDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnPurchaseDateChanged();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    #endregion
-		
-		public book_BookBought()
-		{
-			this._aspnet_Users = default(EntityRef<aspnet_Users>);
-			OnCreated();
-		}
-		
-		[Column(Storage="_UserId", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid UserId
-		{
-			get
-			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					if (this._aspnet_Users.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnUserIdChanging(value);
-					this.SendPropertyChanging();
-					this._UserId = value;
-					this.SendPropertyChanged("UserId");
-					this.OnUserIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_BookId", DbType="Int NOT NULL")]
-		public int BookId
-		{
-			get
-			{
-				return this._BookId;
-			}
-			set
-			{
-				if ((this._BookId != value))
-				{
-					this.OnBookIdChanging(value);
-					this.SendPropertyChanging();
-					this._BookId = value;
-					this.SendPropertyChanged("BookId");
-					this.OnBookIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_MoneyPaid", DbType="Money NOT NULL")]
-		public decimal MoneyPaid
-		{
-			get
-			{
-				return this._MoneyPaid;
-			}
-			set
-			{
-				if ((this._MoneyPaid != value))
-				{
-					this.OnMoneyPaidChanging(value);
-					this.SendPropertyChanging();
-					this._MoneyPaid = value;
-					this.SendPropertyChanged("MoneyPaid");
-					this.OnMoneyPaidChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_PurchaseDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> PurchaseDate
-		{
-			get
-			{
-				return this._PurchaseDate;
-			}
-			set
-			{
-				if ((this._PurchaseDate != value))
-				{
-					this.OnPurchaseDateChanging(value);
-					this.SendPropertyChanging();
-					this._PurchaseDate = value;
-					this.SendPropertyChanged("PurchaseDate");
-					this.OnPurchaseDateChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[Association(Name="aspnet_Users_book_BookBought", Storage="_aspnet_Users", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
-		public aspnet_Users aspnet_Users
-		{
-			get
-			{
-				return this._aspnet_Users.Entity;
-			}
-			set
-			{
-				aspnet_Users previousValue = this._aspnet_Users.Entity;
-				if (((previousValue != value) 
-							|| (this._aspnet_Users.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._aspnet_Users.Entity = null;
-						previousValue.book_BookBought.Remove(this);
-					}
-					this._aspnet_Users.Entity = value;
-					if ((value != null))
-					{
-						value.book_BookBought.Add(this);
-						this._UserId = value.UserId;
-					}
-					else
-					{
-						this._UserId = default(System.Guid);
-					}
-					this.SendPropertyChanged("aspnet_Users");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<book_BooksViewed>();
 			}
 		}
 	}
@@ -1421,11 +181,19 @@ namespace BLOOM.Web.Models.Book
 		
 		private System.Data.Linq.Binary _Snapshot;
 		
+		private int _ViewedTimes;
+		
+		private int _BoughtTimes;
+		
+		private EntitySet<book_BookBought> _book_BookBought;
+		
+		private EntitySet<book_BooksBelong> _book_BooksBelong;
+		
+		private EntitySet<book_Bookmarks> _book_Bookmarks;
+		
 		private EntitySet<book_Remarks> _book_Remarks;
 		
 		private EntitySet<book_BooksViewed> _book_BooksViewed;
-		
-		private EntitySet<book_BooksBelong> _book_BooksBelong;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1455,13 +223,19 @@ namespace BLOOM.Web.Models.Book
     partial void OnPagesChanged();
     partial void OnSnapshotChanging(System.Data.Linq.Binary value);
     partial void OnSnapshotChanged();
+    partial void OnViewedTimesChanging(int value);
+    partial void OnViewedTimesChanged();
+    partial void OnBoughtTimesChanging(int value);
+    partial void OnBoughtTimesChanged();
     #endregion
 		
 		public book_BookInfo()
 		{
+			this._book_BookBought = new EntitySet<book_BookBought>(new Action<book_BookBought>(this.attach_book_BookBought), new Action<book_BookBought>(this.detach_book_BookBought));
+			this._book_BooksBelong = new EntitySet<book_BooksBelong>(new Action<book_BooksBelong>(this.attach_book_BooksBelong), new Action<book_BooksBelong>(this.detach_book_BooksBelong));
+			this._book_Bookmarks = new EntitySet<book_Bookmarks>(new Action<book_Bookmarks>(this.attach_book_Bookmarks), new Action<book_Bookmarks>(this.detach_book_Bookmarks));
 			this._book_Remarks = new EntitySet<book_Remarks>(new Action<book_Remarks>(this.attach_book_Remarks), new Action<book_Remarks>(this.detach_book_Remarks));
 			this._book_BooksViewed = new EntitySet<book_BooksViewed>(new Action<book_BooksViewed>(this.attach_book_BooksViewed), new Action<book_BooksViewed>(this.detach_book_BooksViewed));
-			this._book_BooksBelong = new EntitySet<book_BooksBelong>(new Action<book_BooksBelong>(this.attach_book_BooksBelong), new Action<book_BooksBelong>(this.detach_book_BooksBelong));
 			OnCreated();
 		}
 		
@@ -1685,7 +459,7 @@ namespace BLOOM.Web.Models.Book
 			}
 		}
 		
-		[Column(Storage="_Snapshot", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		[Column(Storage="_Snapshot", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary Snapshot
 		{
 			get
@@ -1702,6 +476,85 @@ namespace BLOOM.Web.Models.Book
 					this.SendPropertyChanged("Snapshot");
 					this.OnSnapshotChanged();
 				}
+			}
+		}
+		
+		[Column(Storage="_ViewedTimes", DbType="Int NOT NULL")]
+		public int ViewedTimes
+		{
+			get
+			{
+				return this._ViewedTimes;
+			}
+			set
+			{
+				if ((this._ViewedTimes != value))
+				{
+					this.OnViewedTimesChanging(value);
+					this.SendPropertyChanging();
+					this._ViewedTimes = value;
+					this.SendPropertyChanged("ViewedTimes");
+					this.OnViewedTimesChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_BoughtTimes", DbType="Int NOT NULL")]
+		public int BoughtTimes
+		{
+			get
+			{
+				return this._BoughtTimes;
+			}
+			set
+			{
+				if ((this._BoughtTimes != value))
+				{
+					this.OnBoughtTimesChanging(value);
+					this.SendPropertyChanging();
+					this._BoughtTimes = value;
+					this.SendPropertyChanged("BoughtTimes");
+					this.OnBoughtTimesChanged();
+				}
+			}
+		}
+		
+		[Association(Name="book_BookInfo_book_BookBought", Storage="_book_BookBought", ThisKey="BookId", OtherKey="BookId")]
+		public EntitySet<book_BookBought> book_BookBought
+		{
+			get
+			{
+				return this._book_BookBought;
+			}
+			set
+			{
+				this._book_BookBought.Assign(value);
+			}
+		}
+		
+		[Association(Name="book_BookInfo_book_BooksBelong", Storage="_book_BooksBelong", ThisKey="BookId", OtherKey="BookId")]
+		public EntitySet<book_BooksBelong> book_BooksBelong
+		{
+			get
+			{
+				return this._book_BooksBelong;
+			}
+			set
+			{
+				this._book_BooksBelong.Assign(value);
+			}
+		}
+		
+		[Association(Name="book_BookInfo_book_Bookmarks", Storage="_book_Bookmarks", ThisKey="BookId", OtherKey="BookId")]
+		public EntitySet<book_Bookmarks> book_Bookmarks
+		{
+			get
+			{
+				return this._book_Bookmarks;
+			}
+			set
+			{
+				this._book_Bookmarks.Assign(value);
 			}
 		}
 		
@@ -1731,7 +584,1146 @@ namespace BLOOM.Web.Models.Book
 			}
 		}
 		
-		[Association(Name="book_BookInfo_book_BooksBelong", Storage="_book_BooksBelong", ThisKey="BookId", OtherKey="BookId")]
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_book_BookBought(book_BookBought entity)
+		{
+			this.SendPropertyChanging();
+			entity.book_BookInfo = this;
+		}
+		
+		private void detach_book_BookBought(book_BookBought entity)
+		{
+			this.SendPropertyChanging();
+			entity.book_BookInfo = null;
+		}
+		
+		private void attach_book_BooksBelong(book_BooksBelong entity)
+		{
+			this.SendPropertyChanging();
+			entity.book_BookInfo = this;
+		}
+		
+		private void detach_book_BooksBelong(book_BooksBelong entity)
+		{
+			this.SendPropertyChanging();
+			entity.book_BookInfo = null;
+		}
+		
+		private void attach_book_Bookmarks(book_Bookmarks entity)
+		{
+			this.SendPropertyChanging();
+			entity.book_BookInfo = this;
+		}
+		
+		private void detach_book_Bookmarks(book_Bookmarks entity)
+		{
+			this.SendPropertyChanging();
+			entity.book_BookInfo = null;
+		}
+		
+		private void attach_book_Remarks(book_Remarks entity)
+		{
+			this.SendPropertyChanging();
+			entity.book_BookInfo = this;
+		}
+		
+		private void detach_book_Remarks(book_Remarks entity)
+		{
+			this.SendPropertyChanging();
+			entity.book_BookInfo = null;
+		}
+		
+		private void attach_book_BooksViewed(book_BooksViewed entity)
+		{
+			this.SendPropertyChanging();
+			entity.book_BookInfo = this;
+		}
+		
+		private void detach_book_BooksViewed(book_BooksViewed entity)
+		{
+			this.SendPropertyChanging();
+			entity.book_BookInfo = null;
+		}
+	}
+	
+	[Table(Name="dbo.aspnet_Users")]
+	public partial class aspnet_Users : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _ApplicationId;
+		
+		private System.Guid _UserId;
+		
+		private string _UserName;
+		
+		private string _LoweredUserName;
+		
+		private string _MobileAlias;
+		
+		private bool _IsAnonymous;
+		
+		private System.DateTime _LastActivityDate;
+		
+		private EntitySet<book_BookBought> _book_BookBought;
+		
+		private EntitySet<book_Bookmarks> _book_Bookmarks;
+		
+		private EntitySet<book_Remarks> _book_Remarks;
+		
+		private EntitySet<book_BooksViewed> _book_BooksViewed;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnApplicationIdChanging(System.Guid value);
+    partial void OnApplicationIdChanged();
+    partial void OnUserIdChanging(System.Guid value);
+    partial void OnUserIdChanged();
+    partial void OnUserNameChanging(string value);
+    partial void OnUserNameChanged();
+    partial void OnLoweredUserNameChanging(string value);
+    partial void OnLoweredUserNameChanged();
+    partial void OnMobileAliasChanging(string value);
+    partial void OnMobileAliasChanged();
+    partial void OnIsAnonymousChanging(bool value);
+    partial void OnIsAnonymousChanged();
+    partial void OnLastActivityDateChanging(System.DateTime value);
+    partial void OnLastActivityDateChanged();
+    #endregion
+		
+		public aspnet_Users()
+		{
+			this._book_BookBought = new EntitySet<book_BookBought>(new Action<book_BookBought>(this.attach_book_BookBought), new Action<book_BookBought>(this.detach_book_BookBought));
+			this._book_Bookmarks = new EntitySet<book_Bookmarks>(new Action<book_Bookmarks>(this.attach_book_Bookmarks), new Action<book_Bookmarks>(this.detach_book_Bookmarks));
+			this._book_Remarks = new EntitySet<book_Remarks>(new Action<book_Remarks>(this.attach_book_Remarks), new Action<book_Remarks>(this.detach_book_Remarks));
+			this._book_BooksViewed = new EntitySet<book_BooksViewed>(new Action<book_BooksViewed>(this.attach_book_BooksViewed), new Action<book_BooksViewed>(this.detach_book_BooksViewed));
+			OnCreated();
+		}
+		
+		[Column(Storage="_ApplicationId", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid ApplicationId
+		{
+			get
+			{
+				return this._ApplicationId;
+			}
+			set
+			{
+				if ((this._ApplicationId != value))
+				{
+					this.OnApplicationIdChanging(value);
+					this.SendPropertyChanging();
+					this._ApplicationId = value;
+					this.SendPropertyChanged("ApplicationId");
+					this.OnApplicationIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_UserId", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					this.OnUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_UserName", DbType="NVarChar(256) NOT NULL", CanBeNull=false)]
+		public string UserName
+		{
+			get
+			{
+				return this._UserName;
+			}
+			set
+			{
+				if ((this._UserName != value))
+				{
+					this.OnUserNameChanging(value);
+					this.SendPropertyChanging();
+					this._UserName = value;
+					this.SendPropertyChanged("UserName");
+					this.OnUserNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_LoweredUserName", DbType="NVarChar(256) NOT NULL", CanBeNull=false)]
+		public string LoweredUserName
+		{
+			get
+			{
+				return this._LoweredUserName;
+			}
+			set
+			{
+				if ((this._LoweredUserName != value))
+				{
+					this.OnLoweredUserNameChanging(value);
+					this.SendPropertyChanging();
+					this._LoweredUserName = value;
+					this.SendPropertyChanged("LoweredUserName");
+					this.OnLoweredUserNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_MobileAlias", DbType="NVarChar(16)")]
+		public string MobileAlias
+		{
+			get
+			{
+				return this._MobileAlias;
+			}
+			set
+			{
+				if ((this._MobileAlias != value))
+				{
+					this.OnMobileAliasChanging(value);
+					this.SendPropertyChanging();
+					this._MobileAlias = value;
+					this.SendPropertyChanged("MobileAlias");
+					this.OnMobileAliasChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_IsAnonymous", DbType="Bit NOT NULL")]
+		public bool IsAnonymous
+		{
+			get
+			{
+				return this._IsAnonymous;
+			}
+			set
+			{
+				if ((this._IsAnonymous != value))
+				{
+					this.OnIsAnonymousChanging(value);
+					this.SendPropertyChanging();
+					this._IsAnonymous = value;
+					this.SendPropertyChanged("IsAnonymous");
+					this.OnIsAnonymousChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_LastActivityDate", DbType="DateTime NOT NULL")]
+		public System.DateTime LastActivityDate
+		{
+			get
+			{
+				return this._LastActivityDate;
+			}
+			set
+			{
+				if ((this._LastActivityDate != value))
+				{
+					this.OnLastActivityDateChanging(value);
+					this.SendPropertyChanging();
+					this._LastActivityDate = value;
+					this.SendPropertyChanged("LastActivityDate");
+					this.OnLastActivityDateChanged();
+				}
+			}
+		}
+		
+		[Association(Name="aspnet_Users_book_BookBought", Storage="_book_BookBought", ThisKey="UserId", OtherKey="UserId")]
+		public EntitySet<book_BookBought> book_BookBought
+		{
+			get
+			{
+				return this._book_BookBought;
+			}
+			set
+			{
+				this._book_BookBought.Assign(value);
+			}
+		}
+		
+		[Association(Name="aspnet_Users_book_Bookmarks", Storage="_book_Bookmarks", ThisKey="UserId", OtherKey="UserId")]
+		public EntitySet<book_Bookmarks> book_Bookmarks
+		{
+			get
+			{
+				return this._book_Bookmarks;
+			}
+			set
+			{
+				this._book_Bookmarks.Assign(value);
+			}
+		}
+		
+		[Association(Name="aspnet_Users_book_Remarks", Storage="_book_Remarks", ThisKey="UserId", OtherKey="UserId")]
+		public EntitySet<book_Remarks> book_Remarks
+		{
+			get
+			{
+				return this._book_Remarks;
+			}
+			set
+			{
+				this._book_Remarks.Assign(value);
+			}
+		}
+		
+		[Association(Name="aspnet_Users_book_BooksViewed", Storage="_book_BooksViewed", ThisKey="UserId", OtherKey="UserId")]
+		public EntitySet<book_BooksViewed> book_BooksViewed
+		{
+			get
+			{
+				return this._book_BooksViewed;
+			}
+			set
+			{
+				this._book_BooksViewed.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_book_BookBought(book_BookBought entity)
+		{
+			this.SendPropertyChanging();
+			entity.aspnet_Users = this;
+		}
+		
+		private void detach_book_BookBought(book_BookBought entity)
+		{
+			this.SendPropertyChanging();
+			entity.aspnet_Users = null;
+		}
+		
+		private void attach_book_Bookmarks(book_Bookmarks entity)
+		{
+			this.SendPropertyChanging();
+			entity.aspnet_Users = this;
+		}
+		
+		private void detach_book_Bookmarks(book_Bookmarks entity)
+		{
+			this.SendPropertyChanging();
+			entity.aspnet_Users = null;
+		}
+		
+		private void attach_book_Remarks(book_Remarks entity)
+		{
+			this.SendPropertyChanging();
+			entity.aspnet_Users = this;
+		}
+		
+		private void detach_book_Remarks(book_Remarks entity)
+		{
+			this.SendPropertyChanging();
+			entity.aspnet_Users = null;
+		}
+		
+		private void attach_book_BooksViewed(book_BooksViewed entity)
+		{
+			this.SendPropertyChanging();
+			entity.aspnet_Users = this;
+		}
+		
+		private void detach_book_BooksViewed(book_BooksViewed entity)
+		{
+			this.SendPropertyChanging();
+			entity.aspnet_Users = null;
+		}
+	}
+	
+	[Table(Name="dbo.book_BookBought")]
+	public partial class book_BookBought : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _UserId;
+		
+		private int _BookId;
+		
+		private decimal _MoneyPaid;
+		
+		private System.Nullable<System.DateTime> _PurchaseDate;
+		
+		private int _Id;
+		
+		private EntityRef<aspnet_Users> _aspnet_Users;
+		
+		private EntityRef<book_BookInfo> _book_BookInfo;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUserIdChanging(System.Guid value);
+    partial void OnUserIdChanged();
+    partial void OnBookIdChanging(int value);
+    partial void OnBookIdChanged();
+    partial void OnMoneyPaidChanging(decimal value);
+    partial void OnMoneyPaidChanged();
+    partial void OnPurchaseDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnPurchaseDateChanged();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    #endregion
+		
+		public book_BookBought()
+		{
+			this._aspnet_Users = default(EntityRef<aspnet_Users>);
+			this._book_BookInfo = default(EntityRef<book_BookInfo>);
+			OnCreated();
+		}
+		
+		[Column(Storage="_UserId", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					if (this._aspnet_Users.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_BookId", DbType="Int NOT NULL")]
+		public int BookId
+		{
+			get
+			{
+				return this._BookId;
+			}
+			set
+			{
+				if ((this._BookId != value))
+				{
+					if (this._book_BookInfo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBookIdChanging(value);
+					this.SendPropertyChanging();
+					this._BookId = value;
+					this.SendPropertyChanged("BookId");
+					this.OnBookIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_MoneyPaid", DbType="Money NOT NULL")]
+		public decimal MoneyPaid
+		{
+			get
+			{
+				return this._MoneyPaid;
+			}
+			set
+			{
+				if ((this._MoneyPaid != value))
+				{
+					this.OnMoneyPaidChanging(value);
+					this.SendPropertyChanging();
+					this._MoneyPaid = value;
+					this.SendPropertyChanged("MoneyPaid");
+					this.OnMoneyPaidChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_PurchaseDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> PurchaseDate
+		{
+			get
+			{
+				return this._PurchaseDate;
+			}
+			set
+			{
+				if ((this._PurchaseDate != value))
+				{
+					this.OnPurchaseDateChanging(value);
+					this.SendPropertyChanging();
+					this._PurchaseDate = value;
+					this.SendPropertyChanged("PurchaseDate");
+					this.OnPurchaseDateChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[Association(Name="aspnet_Users_book_BookBought", Storage="_aspnet_Users", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
+		public aspnet_Users aspnet_Users
+		{
+			get
+			{
+				return this._aspnet_Users.Entity;
+			}
+			set
+			{
+				aspnet_Users previousValue = this._aspnet_Users.Entity;
+				if (((previousValue != value) 
+							|| (this._aspnet_Users.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._aspnet_Users.Entity = null;
+						previousValue.book_BookBought.Remove(this);
+					}
+					this._aspnet_Users.Entity = value;
+					if ((value != null))
+					{
+						value.book_BookBought.Add(this);
+						this._UserId = value.UserId;
+					}
+					else
+					{
+						this._UserId = default(System.Guid);
+					}
+					this.SendPropertyChanged("aspnet_Users");
+				}
+			}
+		}
+		
+		[Association(Name="book_BookInfo_book_BookBought", Storage="_book_BookInfo", ThisKey="BookId", OtherKey="BookId", IsForeignKey=true)]
+		public book_BookInfo book_BookInfo
+		{
+			get
+			{
+				return this._book_BookInfo.Entity;
+			}
+			set
+			{
+				book_BookInfo previousValue = this._book_BookInfo.Entity;
+				if (((previousValue != value) 
+							|| (this._book_BookInfo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._book_BookInfo.Entity = null;
+						previousValue.book_BookBought.Remove(this);
+					}
+					this._book_BookInfo.Entity = value;
+					if ((value != null))
+					{
+						value.book_BookBought.Add(this);
+						this._BookId = value.BookId;
+					}
+					else
+					{
+						this._BookId = default(int);
+					}
+					this.SendPropertyChanged("book_BookInfo");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="dbo.book_BooksBelong")]
+	public partial class book_BooksBelong : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _BookId;
+		
+		private int _CategoryId;
+		
+		private int _BooksBelongId;
+		
+		private EntityRef<book_BookInfo> _book_BookInfo;
+		
+		private EntityRef<book_Categories> _book_Categories;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnBookIdChanging(int value);
+    partial void OnBookIdChanged();
+    partial void OnCategoryIdChanging(int value);
+    partial void OnCategoryIdChanged();
+    partial void OnBooksBelongIdChanging(int value);
+    partial void OnBooksBelongIdChanged();
+    #endregion
+		
+		public book_BooksBelong()
+		{
+			this._book_BookInfo = default(EntityRef<book_BookInfo>);
+			this._book_Categories = default(EntityRef<book_Categories>);
+			OnCreated();
+		}
+		
+		[Column(Storage="_BookId", DbType="Int NOT NULL")]
+		public int BookId
+		{
+			get
+			{
+				return this._BookId;
+			}
+			set
+			{
+				if ((this._BookId != value))
+				{
+					if (this._book_BookInfo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBookIdChanging(value);
+					this.SendPropertyChanging();
+					this._BookId = value;
+					this.SendPropertyChanged("BookId");
+					this.OnBookIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_CategoryId", DbType="Int NOT NULL")]
+		public int CategoryId
+		{
+			get
+			{
+				return this._CategoryId;
+			}
+			set
+			{
+				if ((this._CategoryId != value))
+				{
+					if (this._book_Categories.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCategoryIdChanging(value);
+					this.SendPropertyChanging();
+					this._CategoryId = value;
+					this.SendPropertyChanged("CategoryId");
+					this.OnCategoryIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_BooksBelongId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int BooksBelongId
+		{
+			get
+			{
+				return this._BooksBelongId;
+			}
+			set
+			{
+				if ((this._BooksBelongId != value))
+				{
+					this.OnBooksBelongIdChanging(value);
+					this.SendPropertyChanging();
+					this._BooksBelongId = value;
+					this.SendPropertyChanged("BooksBelongId");
+					this.OnBooksBelongIdChanged();
+				}
+			}
+		}
+		
+		[Association(Name="book_BookInfo_book_BooksBelong", Storage="_book_BookInfo", ThisKey="BookId", OtherKey="BookId", IsForeignKey=true)]
+		public book_BookInfo book_BookInfo
+		{
+			get
+			{
+				return this._book_BookInfo.Entity;
+			}
+			set
+			{
+				book_BookInfo previousValue = this._book_BookInfo.Entity;
+				if (((previousValue != value) 
+							|| (this._book_BookInfo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._book_BookInfo.Entity = null;
+						previousValue.book_BooksBelong.Remove(this);
+					}
+					this._book_BookInfo.Entity = value;
+					if ((value != null))
+					{
+						value.book_BooksBelong.Add(this);
+						this._BookId = value.BookId;
+					}
+					else
+					{
+						this._BookId = default(int);
+					}
+					this.SendPropertyChanged("book_BookInfo");
+				}
+			}
+		}
+		
+		[Association(Name="book_Categories_book_BooksBelong", Storage="_book_Categories", ThisKey="CategoryId", OtherKey="CategoryId", IsForeignKey=true)]
+		public book_Categories book_Categories
+		{
+			get
+			{
+				return this._book_Categories.Entity;
+			}
+			set
+			{
+				book_Categories previousValue = this._book_Categories.Entity;
+				if (((previousValue != value) 
+							|| (this._book_Categories.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._book_Categories.Entity = null;
+						previousValue.book_BooksBelong.Remove(this);
+					}
+					this._book_Categories.Entity = value;
+					if ((value != null))
+					{
+						value.book_BooksBelong.Add(this);
+						this._CategoryId = value.CategoryId;
+					}
+					else
+					{
+						this._CategoryId = default(int);
+					}
+					this.SendPropertyChanged("book_Categories");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="dbo.book_Bookmarks")]
+	public partial class book_Bookmarks : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _BookmarkId;
+		
+		private System.Nullable<System.Guid> _UserId;
+		
+		private System.Nullable<int> _BookId;
+		
+		private System.Nullable<int> _BookmarkPage;
+		
+		private EntityRef<aspnet_Users> _aspnet_Users;
+		
+		private EntityRef<book_BookInfo> _book_BookInfo;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnBookmarkIdChanging(int value);
+    partial void OnBookmarkIdChanged();
+    partial void OnUserIdChanging(System.Nullable<System.Guid> value);
+    partial void OnUserIdChanged();
+    partial void OnBookIdChanging(System.Nullable<int> value);
+    partial void OnBookIdChanged();
+    partial void OnBookmarkPageChanging(System.Nullable<int> value);
+    partial void OnBookmarkPageChanged();
+    #endregion
+		
+		public book_Bookmarks()
+		{
+			this._aspnet_Users = default(EntityRef<aspnet_Users>);
+			this._book_BookInfo = default(EntityRef<book_BookInfo>);
+			OnCreated();
+		}
+		
+		[Column(Storage="_BookmarkId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int BookmarkId
+		{
+			get
+			{
+				return this._BookmarkId;
+			}
+			set
+			{
+				if ((this._BookmarkId != value))
+				{
+					this.OnBookmarkIdChanging(value);
+					this.SendPropertyChanging();
+					this._BookmarkId = value;
+					this.SendPropertyChanged("BookmarkId");
+					this.OnBookmarkIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_UserId", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					if (this._aspnet_Users.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_BookId", DbType="Int")]
+		public System.Nullable<int> BookId
+		{
+			get
+			{
+				return this._BookId;
+			}
+			set
+			{
+				if ((this._BookId != value))
+				{
+					if (this._book_BookInfo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBookIdChanging(value);
+					this.SendPropertyChanging();
+					this._BookId = value;
+					this.SendPropertyChanged("BookId");
+					this.OnBookIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_BookmarkPage", DbType="Int")]
+		public System.Nullable<int> BookmarkPage
+		{
+			get
+			{
+				return this._BookmarkPage;
+			}
+			set
+			{
+				if ((this._BookmarkPage != value))
+				{
+					this.OnBookmarkPageChanging(value);
+					this.SendPropertyChanging();
+					this._BookmarkPage = value;
+					this.SendPropertyChanged("BookmarkPage");
+					this.OnBookmarkPageChanged();
+				}
+			}
+		}
+		
+		[Association(Name="aspnet_Users_book_Bookmarks", Storage="_aspnet_Users", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
+		public aspnet_Users aspnet_Users
+		{
+			get
+			{
+				return this._aspnet_Users.Entity;
+			}
+			set
+			{
+				aspnet_Users previousValue = this._aspnet_Users.Entity;
+				if (((previousValue != value) 
+							|| (this._aspnet_Users.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._aspnet_Users.Entity = null;
+						previousValue.book_Bookmarks.Remove(this);
+					}
+					this._aspnet_Users.Entity = value;
+					if ((value != null))
+					{
+						value.book_Bookmarks.Add(this);
+						this._UserId = value.UserId;
+					}
+					else
+					{
+						this._UserId = default(Nullable<System.Guid>);
+					}
+					this.SendPropertyChanged("aspnet_Users");
+				}
+			}
+		}
+		
+		[Association(Name="book_BookInfo_book_Bookmarks", Storage="_book_BookInfo", ThisKey="BookId", OtherKey="BookId", IsForeignKey=true)]
+		public book_BookInfo book_BookInfo
+		{
+			get
+			{
+				return this._book_BookInfo.Entity;
+			}
+			set
+			{
+				book_BookInfo previousValue = this._book_BookInfo.Entity;
+				if (((previousValue != value) 
+							|| (this._book_BookInfo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._book_BookInfo.Entity = null;
+						previousValue.book_Bookmarks.Remove(this);
+					}
+					this._book_BookInfo.Entity = value;
+					if ((value != null))
+					{
+						value.book_Bookmarks.Add(this);
+						this._BookId = value.BookId;
+					}
+					else
+					{
+						this._BookId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("book_BookInfo");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="dbo.book_Categories")]
+	public partial class book_Categories : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _CategoryId;
+		
+		private string _CategoryName;
+		
+		private string _Description;
+		
+		private EntitySet<book_BooksBelong> _book_BooksBelong;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCategoryIdChanging(int value);
+    partial void OnCategoryIdChanged();
+    partial void OnCategoryNameChanging(string value);
+    partial void OnCategoryNameChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    #endregion
+		
+		public book_Categories()
+		{
+			this._book_BooksBelong = new EntitySet<book_BooksBelong>(new Action<book_BooksBelong>(this.attach_book_BooksBelong), new Action<book_BooksBelong>(this.detach_book_BooksBelong));
+			OnCreated();
+		}
+		
+		[Column(Storage="_CategoryId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int CategoryId
+		{
+			get
+			{
+				return this._CategoryId;
+			}
+			set
+			{
+				if ((this._CategoryId != value))
+				{
+					this.OnCategoryIdChanging(value);
+					this.SendPropertyChanging();
+					this._CategoryId = value;
+					this.SendPropertyChanged("CategoryId");
+					this.OnCategoryIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_CategoryName", DbType="NVarChar(256)")]
+		public string CategoryName
+		{
+			get
+			{
+				return this._CategoryName;
+			}
+			set
+			{
+				if ((this._CategoryName != value))
+				{
+					this.OnCategoryNameChanging(value);
+					this.SendPropertyChanging();
+					this._CategoryName = value;
+					this.SendPropertyChanged("CategoryName");
+					this.OnCategoryNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Description", DbType="NVarChar(MAX)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[Association(Name="book_Categories_book_BooksBelong", Storage="_book_BooksBelong", ThisKey="CategoryId", OtherKey="CategoryId")]
 		public EntitySet<book_BooksBelong> book_BooksBelong
 		{
 			get
@@ -1764,40 +1756,496 @@ namespace BLOOM.Web.Models.Book
 			}
 		}
 		
-		private void attach_book_Remarks(book_Remarks entity)
-		{
-			this.SendPropertyChanging();
-			entity.book_BookInfo = this;
-		}
-		
-		private void detach_book_Remarks(book_Remarks entity)
-		{
-			this.SendPropertyChanging();
-			entity.book_BookInfo = null;
-		}
-		
-		private void attach_book_BooksViewed(book_BooksViewed entity)
-		{
-			this.SendPropertyChanging();
-			entity.book_BookInfo = this;
-		}
-		
-		private void detach_book_BooksViewed(book_BooksViewed entity)
-		{
-			this.SendPropertyChanging();
-			entity.book_BookInfo = null;
-		}
-		
 		private void attach_book_BooksBelong(book_BooksBelong entity)
 		{
 			this.SendPropertyChanging();
-			entity.book_BookInfo = this;
+			entity.book_Categories = this;
 		}
 		
 		private void detach_book_BooksBelong(book_BooksBelong entity)
 		{
 			this.SendPropertyChanging();
-			entity.book_BookInfo = null;
+			entity.book_Categories = null;
+		}
+	}
+	
+	[Table(Name="dbo.book_Remarks")]
+	public partial class book_Remarks : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _RemarkId;
+		
+		private System.Nullable<System.Guid> _UserId;
+		
+		private System.Nullable<int> _BookId;
+		
+		private System.Nullable<System.DateTime> _RemarkDate;
+		
+		private string _Remarks;
+		
+		private EntityRef<book_BookInfo> _book_BookInfo;
+		
+		private EntityRef<aspnet_Users> _aspnet_Users;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRemarkIdChanging(int value);
+    partial void OnRemarkIdChanged();
+    partial void OnUserIdChanging(System.Nullable<System.Guid> value);
+    partial void OnUserIdChanged();
+    partial void OnBookIdChanging(System.Nullable<int> value);
+    partial void OnBookIdChanged();
+    partial void OnRemarkDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnRemarkDateChanged();
+    partial void OnRemarksChanging(string value);
+    partial void OnRemarksChanged();
+    #endregion
+		
+		public book_Remarks()
+		{
+			this._book_BookInfo = default(EntityRef<book_BookInfo>);
+			this._aspnet_Users = default(EntityRef<aspnet_Users>);
+			OnCreated();
+		}
+		
+		[Column(Storage="_RemarkId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int RemarkId
+		{
+			get
+			{
+				return this._RemarkId;
+			}
+			set
+			{
+				if ((this._RemarkId != value))
+				{
+					this.OnRemarkIdChanging(value);
+					this.SendPropertyChanging();
+					this._RemarkId = value;
+					this.SendPropertyChanged("RemarkId");
+					this.OnRemarkIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_UserId", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					if (this._aspnet_Users.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_BookId", DbType="Int")]
+		public System.Nullable<int> BookId
+		{
+			get
+			{
+				return this._BookId;
+			}
+			set
+			{
+				if ((this._BookId != value))
+				{
+					if (this._book_BookInfo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBookIdChanging(value);
+					this.SendPropertyChanging();
+					this._BookId = value;
+					this.SendPropertyChanged("BookId");
+					this.OnBookIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_RemarkDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> RemarkDate
+		{
+			get
+			{
+				return this._RemarkDate;
+			}
+			set
+			{
+				if ((this._RemarkDate != value))
+				{
+					this.OnRemarkDateChanging(value);
+					this.SendPropertyChanging();
+					this._RemarkDate = value;
+					this.SendPropertyChanged("RemarkDate");
+					this.OnRemarkDateChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Remarks", DbType="NVarChar(MAX)")]
+		public string Remarks
+		{
+			get
+			{
+				return this._Remarks;
+			}
+			set
+			{
+				if ((this._Remarks != value))
+				{
+					this.OnRemarksChanging(value);
+					this.SendPropertyChanging();
+					this._Remarks = value;
+					this.SendPropertyChanged("Remarks");
+					this.OnRemarksChanged();
+				}
+			}
+		}
+		
+		[Association(Name="book_BookInfo_book_Remarks", Storage="_book_BookInfo", ThisKey="BookId", OtherKey="BookId", IsForeignKey=true)]
+		public book_BookInfo book_BookInfo
+		{
+			get
+			{
+				return this._book_BookInfo.Entity;
+			}
+			set
+			{
+				book_BookInfo previousValue = this._book_BookInfo.Entity;
+				if (((previousValue != value) 
+							|| (this._book_BookInfo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._book_BookInfo.Entity = null;
+						previousValue.book_Remarks.Remove(this);
+					}
+					this._book_BookInfo.Entity = value;
+					if ((value != null))
+					{
+						value.book_Remarks.Add(this);
+						this._BookId = value.BookId;
+					}
+					else
+					{
+						this._BookId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("book_BookInfo");
+				}
+			}
+		}
+		
+		[Association(Name="aspnet_Users_book_Remarks", Storage="_aspnet_Users", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
+		public aspnet_Users aspnet_Users
+		{
+			get
+			{
+				return this._aspnet_Users.Entity;
+			}
+			set
+			{
+				aspnet_Users previousValue = this._aspnet_Users.Entity;
+				if (((previousValue != value) 
+							|| (this._aspnet_Users.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._aspnet_Users.Entity = null;
+						previousValue.book_Remarks.Remove(this);
+					}
+					this._aspnet_Users.Entity = value;
+					if ((value != null))
+					{
+						value.book_Remarks.Add(this);
+						this._UserId = value.UserId;
+					}
+					else
+					{
+						this._UserId = default(Nullable<System.Guid>);
+					}
+					this.SendPropertyChanged("aspnet_Users");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="dbo.book_BooksViewed")]
+	public partial class book_BooksViewed : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _BookId;
+		
+		private System.Guid _UserId;
+		
+		private System.Nullable<int> _ViewTimes;
+		
+		private System.Nullable<System.DateTime> _LastViewDate;
+		
+		private int _BooksViewed;
+		
+		private EntityRef<book_BookInfo> _book_BookInfo;
+		
+		private EntityRef<aspnet_Users> _aspnet_Users;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnBookIdChanging(int value);
+    partial void OnBookIdChanged();
+    partial void OnUserIdChanging(System.Guid value);
+    partial void OnUserIdChanged();
+    partial void OnViewTimesChanging(System.Nullable<int> value);
+    partial void OnViewTimesChanged();
+    partial void OnLastViewDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnLastViewDateChanged();
+    partial void OnBooksViewedChanging(int value);
+    partial void OnBooksViewedChanged();
+    #endregion
+		
+		public book_BooksViewed()
+		{
+			this._book_BookInfo = default(EntityRef<book_BookInfo>);
+			this._aspnet_Users = default(EntityRef<aspnet_Users>);
+			OnCreated();
+		}
+		
+		[Column(Storage="_BookId", DbType="Int NOT NULL")]
+		public int BookId
+		{
+			get
+			{
+				return this._BookId;
+			}
+			set
+			{
+				if ((this._BookId != value))
+				{
+					if (this._book_BookInfo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBookIdChanging(value);
+					this.SendPropertyChanging();
+					this._BookId = value;
+					this.SendPropertyChanged("BookId");
+					this.OnBookIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_UserId", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					if (this._aspnet_Users.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_ViewTimes", DbType="Int")]
+		public System.Nullable<int> ViewTimes
+		{
+			get
+			{
+				return this._ViewTimes;
+			}
+			set
+			{
+				if ((this._ViewTimes != value))
+				{
+					this.OnViewTimesChanging(value);
+					this.SendPropertyChanging();
+					this._ViewTimes = value;
+					this.SendPropertyChanged("ViewTimes");
+					this.OnViewTimesChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_LastViewDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> LastViewDate
+		{
+			get
+			{
+				return this._LastViewDate;
+			}
+			set
+			{
+				if ((this._LastViewDate != value))
+				{
+					this.OnLastViewDateChanging(value);
+					this.SendPropertyChanging();
+					this._LastViewDate = value;
+					this.SendPropertyChanged("LastViewDate");
+					this.OnLastViewDateChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_BooksViewed", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int BooksViewed
+		{
+			get
+			{
+				return this._BooksViewed;
+			}
+			set
+			{
+				if ((this._BooksViewed != value))
+				{
+					this.OnBooksViewedChanging(value);
+					this.SendPropertyChanging();
+					this._BooksViewed = value;
+					this.SendPropertyChanged("BooksViewed");
+					this.OnBooksViewedChanged();
+				}
+			}
+		}
+		
+		[Association(Name="book_BookInfo_book_BooksViewed", Storage="_book_BookInfo", ThisKey="BookId", OtherKey="BookId", IsForeignKey=true)]
+		public book_BookInfo book_BookInfo
+		{
+			get
+			{
+				return this._book_BookInfo.Entity;
+			}
+			set
+			{
+				book_BookInfo previousValue = this._book_BookInfo.Entity;
+				if (((previousValue != value) 
+							|| (this._book_BookInfo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._book_BookInfo.Entity = null;
+						previousValue.book_BooksViewed.Remove(this);
+					}
+					this._book_BookInfo.Entity = value;
+					if ((value != null))
+					{
+						value.book_BooksViewed.Add(this);
+						this._BookId = value.BookId;
+					}
+					else
+					{
+						this._BookId = default(int);
+					}
+					this.SendPropertyChanged("book_BookInfo");
+				}
+			}
+		}
+		
+		[Association(Name="aspnet_Users_book_BooksViewed", Storage="_aspnet_Users", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
+		public aspnet_Users aspnet_Users
+		{
+			get
+			{
+				return this._aspnet_Users.Entity;
+			}
+			set
+			{
+				aspnet_Users previousValue = this._aspnet_Users.Entity;
+				if (((previousValue != value) 
+							|| (this._aspnet_Users.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._aspnet_Users.Entity = null;
+						previousValue.book_BooksViewed.Remove(this);
+					}
+					this._aspnet_Users.Entity = value;
+					if ((value != null))
+					{
+						value.book_BooksViewed.Add(this);
+						this._UserId = value.UserId;
+					}
+					else
+					{
+						this._UserId = default(System.Guid);
+					}
+					this.SendPropertyChanged("aspnet_Users");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }
