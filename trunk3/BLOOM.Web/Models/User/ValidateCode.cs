@@ -13,7 +13,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
-using BLOOM.Models.Book;
+using BLOOM.Web.Models.Book;
 using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;

@@ -22,7 +22,7 @@ namespace BLOOM.Web.Models.Book
     {
         public StoreSnapshot()
         {
-            m_bookDataContext = new BookLinqConnecionDataContext();  //instantiate a user context class
+            m_bookDataContext = new BookLinqConnectionDataContext();  //instantiate a user context class
         }
 
         public IQueryable<book_BookInfo> FindAllBooks()
@@ -56,6 +56,6 @@ namespace BLOOM.Web.Models.Book
         }
 
         // private:
-        private BookLinqConnecionDataContext m_bookDataContext = null;
+        private BookLinqConnectionDataContext m_bookDataContext = null;
     }
 }

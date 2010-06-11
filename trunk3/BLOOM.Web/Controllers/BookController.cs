@@ -3,6 +3,7 @@
 //Description: This file defines the book controller class. 
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -24,6 +25,22 @@ namespace BLOOM.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Search(string keyWord, int kind)
+        {
+            //kind = 0 : title 
+            //kind = 1 : ISBN
+            //kind = 2 : excerpt
+            //kind = 3 : author
+            //kind = 4 : publishing house
+            //kind = 5 : publishing date
+            ArrayList result = new ArrayList();
+            int[] bookID = m_bookRepository.GetBookID(keyWord, kind);
+            foreach (var id in bookID)
+                result.Add(m_bookRepository.GetBookInfo((int)id));
+            return View("BookSearchResult", result);
+        }
+
 
         public ActionResult Preview(int id)
         {

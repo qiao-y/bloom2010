@@ -73,8 +73,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Book\BookLinqConnection.designer.cs" />
-    <Compile Include="Models\Book\BookLinqConnection1.designer.cs" />
+    <Compile Include="Models\Book\BookLinqConnection.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookLinqConnection.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Models\Book\BookPageRepository.cs" />
     <Compile Include="Models\Book\BookRepository.cs" />
     <Compile Include="Models\Book\StoreSnapshot.cs" />
@@ -146,11 +149,6 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Models\Book\BookLinqConnection.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>BookLinqConnection2.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Models\User\UserLinqConnection.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>UserLinqConnection.designer.cs</LastGenOutput>
@@ -223,6 +221,21 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\Book\BookLinqConnection.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>BookLinqConnection.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Models\User\UserLinqConnection.dbml.layout">
+      <DependentUpon>UserLinqConnection.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\Book\BookLinqConnection.dbml.layout">
+      <DependentUpon>BookLinqConnection.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
