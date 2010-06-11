@@ -15,11 +15,12 @@ namespace BLOOM
 {
     public partial class Page : UserControl
     {
-        private  Stroke _drawStroke;
+        private Stroke _drawStroke;
         private List<FillColor> _FillColor;
         List<SizeData> _SizeData;
         private bool _isCaptureMouseCursor = false;
         private bool _isEraser = false;
+        private Nullable<StylusPoint> _lastPoint = null;
 
         public Page()
         {
@@ -66,7 +67,9 @@ namespace BLOOM
             _isCaptureMouseCursor = true;
             if (_isEraser)
             {
-                RemoveStroke(e);
+                StylusPointCollection ErasePoints = e.StylusDevice.GetStylusPoints(inkPresenter);
+                _lastPoint = ErasePoints[ErasePoints.Count - 1];
+                //RemoveStroke(e);
             }
             else
             {
@@ -93,13 +96,73 @@ namespace BLOOM
             _isCaptureMouseCursor = false;
         }
 
+        private void ProcessPointErase(Stroke stroke, StylusPointCollection pointErasePoints)
+        {
+            Stroke splitStroke1, splitStroke2, hitTestStroke;
+
+            // Determine first split stroke.
+            splitStroke1 = new Stroke();
+            hitTestStroke = new Stroke();
+            hitTestStroke.StylusPoints.Add(stroke.StylusPoints);
+            hitTestStroke.DrawingAttributes = stroke.DrawingAttributes;
+
+            //Iterate through the stroke from index 0 and add each stylus point to splitstroke1 until 
+            //a stylus point that intersects with the input stylus point collection is reached.
+            while (true)
+            {
+                StylusPoint sp = hitTestStroke.StylusPoints[0];
+                hitTestStroke.StylusPoints.RemoveAt(0);
+                if (!hitTestStroke.HitTest(pointErasePoints)) break;
+                splitStroke1.StylusPoints.Add(sp);
+            }
+
+            //Determine second split stroke.
+            splitStroke2 = new Stroke();
+            hitTestStroke = new Stroke();
+            hitTestStroke.StylusPoints.Add(stroke.StylusPoints);
+            hitTestStroke.DrawingAttributes = stroke.DrawingAttributes;
+            while (true)
+            {
+                StylusPoint sp = hitTestStroke.StylusPoints[hitTestStroke.StylusPoints.Count - 1];
+                hitTestStroke.StylusPoints.RemoveAt(hitTestStroke.StylusPoints.Count - 1);
+                if (!hitTestStroke.HitTest(pointErasePoints)) break;
+                splitStroke2.StylusPoints.Insert(0, sp);
+            }
+
+            // Replace stroke with splitstroke1 and splitstroke2.
+            if (splitStroke1.StylusPoints.Count > 1)
+            {
+                splitStroke1.DrawingAttributes = stroke.DrawingAttributes;
+                inkPresenter.Strokes.Add(splitStroke1);
+            }
+            if (splitStroke2.StylusPoints.Count > 1)
+            {
+                splitStroke2.DrawingAttributes = stroke.DrawingAttributes;
+                inkPresenter.Strokes.Add(splitStroke2);
+            }
+            inkPresenter.Strokes.Remove(stroke);
+        }
         private void inkPresenter_MouseMove(object sender, MouseEventArgs e)
         {
             if (_isCaptureMouseCursor)
             {
-                if (_isEraser)
+                if (_isEraser && _lastPoint != null)
                 {
-                    RemoveStroke(e);
+                    StylusPointCollection ErasePoints = e.StylusDevice.GetStylusPoints(inkPresenter);
+                    ErasePoints.Insert(0, _lastPoint.Value);
+                    StrokeCollection hitStrokes = inkPresenter.Strokes.HitTest(ErasePoints);
+                    if (hitStrokes.Count > 0)
+                    {
+                        foreach (Stroke hitStroke in hitStrokes)
+                        {
+
+                            ////For each intersecting stroke, split the stroke into two while removing the intersecting points.
+                            ProcessPointErase(hitStroke, ErasePoints);
+                        }
+                    }
+                    _lastPoint = ErasePoints[ErasePoints.Count - 1];
+                    //RemoveStroke(e);
+
                 }
                 else if (_drawStroke != null)
                 {
@@ -109,24 +172,25 @@ namespace BLOOM
             }
         }
 
-        private void RemoveStroke(MouseEventArgs e)
-        {
-            // Stroke.HitTest(StylusPointCollection) -　Stroke 是否与指定的 StylusPoint 集合相连
-            // Strokes.HitTest(StylusPointCollection) - 与指定的 StylusPoint 集合相连的 Stroke 集合
+        //private void RemoveStroke(MouseEventArgs e)
+        //{
+        //    //// Stroke.HitTest(StylusPointCollection) -　Stroke 是否与指定的 StylusPoint 集合相连
+        //    //// Strokes.HitTest(StylusPointCollection) - 与指定的 StylusPoint 集合相连的 Stroke 集合
 
-            // 获取当前鼠标所在位置处的 StylusPoint 集合
-            StylusPointCollection erasePoints = new StylusPointCollection();
-            erasePoints.Add(e.StylusDevice.GetStylusPoints(inkPresenter));
+        //    //// 获取当前鼠标所在位置处的 StylusPoint 集合
+        //    //StylusPointCollection erasePoints = new StylusPointCollection();
+        //    //erasePoints.Add(e.StylusDevice.GetStylusPoints(inkPresenter));
 
-            // 与当前鼠标所在位置处的 StylusPoint 集合相连的 Stroke 集合
-            StrokeCollection hitStrokes = inkPresenter.Strokes.HitTest(erasePoints);
+        //    //// 与当前鼠标所在位置处的 StylusPoint 集合相连的 Stroke 集合
+        //    //StrokeCollection hitStrokes = inkPresenter.Strokes.HitTest(erasePoints);
 
-            for (int i = 0; i < hitStrokes.Count; i++)
-            {
-                // 在 InkPresenter 上清除指定的 Stroke
-                inkPresenter.Strokes.Remove(hitStrokes[i]);
-            }
-        }
+        //    //for (int i = 0; i < hitStrokes.Count; i++)
+        //    //{
+        //    //    // 在 InkPresenter 上清除指定的 Stroke
+        //    //    inkPresenter.Strokes.Remove(hitStrokes[i]);
+        //    //}
+
+        //}
         private void SetBoundary()
         {
             RectangleGeometry MyRectangleGeometry = new RectangleGeometry();
@@ -158,4 +222,5 @@ namespace BLOOM
     {
         public double Size { set; get; }
     }
+
 }
