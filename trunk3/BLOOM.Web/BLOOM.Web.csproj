@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdministratorController.cs" />
+    <Compile Include="Controllers\AnalyseController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SnapshotTestController.cs" />
@@ -72,6 +73,12 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Analyse\Analyse.cs" />
+    <Compile Include="Models\Analyse\AnalyseLinqConnection.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AnalyseLinqConnection.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\Book\BookLinqConnection.designer.cs">
       <AutoGen>True</AutoGen>
@@ -216,6 +223,7 @@
     <Content Include="Image\star.bmp" />
     <Content Include="Image\star.gif" />
     <Content Include="Image\weekhot.jpg" />
+    <Content Include="Views\Analyse\Index.aspx" />
     <Content Include="Views\Shared\Project.Master" />
     <Content Include="Views\Shared\User.Master" />
   </ItemGroup>
@@ -233,8 +241,18 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Models\Analyse\AnalyseLinqConnection.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>AnalyseLinqConnection.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Models\Book\BookLinqConnection.dbml.layout">
       <DependentUpon>BookLinqConnection.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\Analyse\AnalyseLinqConnection.dbml.layout">
+      <DependentUpon>AnalyseLinqConnection.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

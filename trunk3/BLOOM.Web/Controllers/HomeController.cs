@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BLOOM.Web.Models.Analyse;
 
 namespace BLOOM.Web.Controllers
 {
@@ -11,8 +12,11 @@ namespace BLOOM.Web.Controllers
     {
         public ActionResult Index()
         {
+            Analyse bookAnalyse = new Analyse();
             ViewData["Message"] = "Welcome to ASP.NET MVC!";
-
+            ViewData["NewBooks"] = bookAnalyse.NewBooks();
+            ViewData["TopFive"] = bookAnalyse.TopFive();
+            ViewData["HotBooks"] = bookAnalyse.HotBooks();
             return View();
         }
 

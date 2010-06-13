@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Project.Master" Inherits="System.Web.Mvc.ViewPage" %>
+<%@ Import Namespace = "BLOOM.Web.Models.Analyse" %>
 
 <script runat="server">
 
@@ -156,6 +157,7 @@
         <div id="HotBook">
            <div id="WeekHot">
            </div>
+           
            <p id="Atitle">A_title</p>
            <div id="WEEK_1"></div>
            <p id="Btitle">B_title</p>
@@ -171,6 +173,17 @@
         <div id="Rank">
             <div id="PopularBook">
             </div>
+            <%--       <% var books = ViewData["TopFive"] as IQueryable<book_BookInfo>; %>
+        <% foreach (book_BookInfo book in books){ %>
+             <li> <%= Html.ActionLink(book.Title, "../Book/Preview", new { id = book.BookId }) %> 
+        <% } %>--%>
+        
+<%--              <% var ageRanges = ViewData["Test"] as List<m_ageRangeStatistics>; %>
+            <% foreach (m_ageRangeStatistics age in ageRanges){ %>
+                 <li> <%= Html.Encode(age.age) %>
+                 on  <%= Html.Encode(age.count) %>  </li>
+            <% } %>--%>
+            
            <p id="Atitle2">A_title</p>
            <div id="POP_1"></div>
            <p id="Btitle2">B_title</p>

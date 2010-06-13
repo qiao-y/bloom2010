@@ -1,0 +1,27 @@
+USE [BLOOMDataBase]
+GO
+/****** 对象:  Table [dbo].[book_BooksBelong]    脚本日期: 06/14/2010 02:20:46 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[book_BooksBelong](
+	[BookId] [int] NOT NULL,
+	[CategoryId] [int] NOT NULL,
+	[BooksBelongId] [int] IDENTITY(1,1) NOT NULL,
+ CONSTRAINT [PK_aspnet_BooksBelong] PRIMARY KEY CLUSTERED 
+(
+	[BooksBelongId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+ALTER TABLE [dbo].[book_BooksBelong]  WITH CHECK ADD  CONSTRAINT [FK_aspnet_BooksBelong_aspnet_BookInfo] FOREIGN KEY([BookId])
+REFERENCES [dbo].[book_BookInfo] ([BookId])
+GO
+ALTER TABLE [dbo].[book_BooksBelong] CHECK CONSTRAINT [FK_aspnet_BooksBelong_aspnet_BookInfo]
+GO
+ALTER TABLE [dbo].[book_BooksBelong]  WITH CHECK ADD  CONSTRAINT [FK_aspnet_BooksBelong_aspnet_Categories] FOREIGN KEY([CategoryId])
+REFERENCES [dbo].[book_Categories] ([CategoryId])
+GO
+ALTER TABLE [dbo].[book_BooksBelong] CHECK CONSTRAINT [FK_aspnet_BooksBelong_aspnet_Categories]

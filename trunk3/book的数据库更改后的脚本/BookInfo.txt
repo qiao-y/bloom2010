@@ -1,0 +1,28 @@
+USE [BLOOMDataBase]
+GO
+/****** 对象:  Table [dbo].[book_BookInfo]    脚本日期: 06/14/2010 02:19:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[book_BookInfo](
+	[BookId] [int] IDENTITY(1,1) NOT NULL,
+	[Title] [nvarchar](256) NOT NULL,
+	[Path] [nvarchar](200) NULL,
+	[Publisher] [nvarchar](256) NULL,
+	[PublicationDate] [datetime] NULL,
+	[Extract] [nvarchar](max) NOT NULL,
+	[UserScored] [int] NULL,
+	[TotalScore] [int] NULL,
+	[Price] [int] NULL,
+	[Author] [nvarchar](256) NULL,
+	[Pages] [int] NULL,
+	[ISBN] [nchar](30) NULL,
+	[BoughtTimes] [int] NOT NULL CONSTRAINT [DF_book_BookInfo_BoughtTimes]  DEFAULT ((0)),
+	[ViewedTimes] [int] NOT NULL CONSTRAINT [DF_book_BookInfo_ViewedTimes]  DEFAULT ((0)),
+	[Snapshot] [image] NULL,
+ CONSTRAINT [PK_aspnet_BookInfo] PRIMARY KEY CLUSTERED 
+(
+	[BookId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
