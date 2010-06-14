@@ -38,8 +38,8 @@
                 <h3>享受最棒的在线阅读体验。</h3>
                 <p>请认真填写以下各项信息，网站保证不对外泄露任何个人信息</p>
             </div>
-            <div>
-              <%= Html.ValidationSummary("Create was unsuccessful. Please correct the errors and try again.") %>
+            <div class="Validation">
+              <%= Html.ValidationSummary("注册失败。请修改以下信息后再次提交：") %>
             </div>
             <fieldset id="BasicInfo">
                 <legend>基本信息(必填)</legend>

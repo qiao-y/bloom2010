@@ -20,6 +20,13 @@
     <link href="../../Content/smallslider.css" rel="stylesheet" type="text/css" />
     <link href="../../Content/Project.css" rel="stylesheet" type="text/css" />
 
+    <style type="text/css">
+        .style1
+        {
+            height: 19px;
+        }
+    </style>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -54,11 +61,34 @@
             <asp:TextBox ID="SearchInput" runat="server"></asp:TextBox>
             <asp:Image ID="searchpic" runat="server" ImageUrl="~/Image/pic/search.jpg" />
             <asp:Label ID="Label1" runat="server" Text="热门搜索:"></asp:Label>
-            <label id="FSearch">高级搜索</label>    
+            <label id="FSearch"><a href="#">高级搜索</a></label>    
         </fieldset>
         
         <div id="FurtherSearch">
-            &nbsp;</div>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+            	<tr>
+            		<td><label for="BookName">书名：</label></td>
+            		<td><%=Html.TextBox("BookName") %></td>
+            		<td><label for="BookNumber">书号：</label></td>
+            		<td><%=Html.TextBox("BookNumber") %></td>
+            	</tr>
+            	<tr>
+            	    <td class="style1"><label for="Keyword">关键词：</label></td>
+            		<td class="style1"><%=Html.TextBox("Keyword") %></td>
+            		<td class="style1"><label for="Author">作者：</label></td>
+            		<td class="style1"><%=Html.TextBox("Author") %></td>
+            	</tr>
+            	<tr>
+            	    <td><label for="Public">出版社：</label></td>
+            		<td><%=Html.TextBox("Public") %></td>
+            		<td><label for="PublicDate">出版日期：</label></td>
+            		<td><%=Html.TextBox("PublicDate") %></td>
+            	</tr>
+            </table>
+            <p>
+                <input type="submit" value="搜索" />
+            </p>
+        </div>
         
 
         <div id = "main">

@@ -1,5 +1,5 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Project.Master" Inherits="System.Web.Mvc.ViewPage<BLOOM.Web.Models.Book.book_BookInfo>" %>
-
+<%@ Import Namespace="BLOOM.Web.Helpers" %>
 
 
 <asp:Content ID="Title" ContentPlaceHolderID="TitleContent" runat="server">
@@ -14,7 +14,7 @@
         <asp:Image ID="bookinfopic" runat="server" ImageUrl="~/Image/8.jpg" />
         <p>
             <label for="Snapshot">Snapshot:</label>
-            <img src="../Snapshot/<%= Model.BookId %>" alt="snapshot" />
+            <%=Html.Image("snapshot","../Snapshot/"+ Model.BookId,"snapshot") %>
         </p>
         <p>
             <%=Model.Title%>

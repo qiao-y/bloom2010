@@ -65,8 +65,6 @@ namespace BLOOM.Web.Controllers
             if (accountInfo.Balance < bookInfo.Price)   //not enough money
                 return RedirectToAction("Preview", bookID);
 
-            //determine if the user had bought it before!
-
             accountInfo.Balance -= (int)bookInfo.Price; // deduct from the account
 
             //insert a record 
@@ -99,22 +97,25 @@ namespace BLOOM.Web.Controllers
         }
 
         [Authorize]
+        public ActionResult GetPage(int id, int page)
+        {
+            string firstPagePath = m_bookRepository.GetBookPath(id);
+            int totalPages = m_bookRepository.GetBookInfo(id).Pages ?? 1;
+            BookPageRepository bookPageRepository = new BookPageRepository(firstPagePath, totalPages);
+            byte[] myByte = bookPageRepository.GetPage(page);
+            return File(myByte, @"image/jpeg");
+        }
+
+        [Authorize]
         public ActionResult Read(int id, int page)
         {
             MembershipUser user = Membership.GetUser(User.Identity.Name);  //get current user identification
             Guid userGuid = (Guid)user.ProviderUserKey;
             if (!m_bookRepository.IsBought(userGuid, id))   //not bought yet
                 return RedirectToAction("Buy", new { bookID = id });
-            string path = m_bookRepository.GetBookPath(id);
-            int totalPages = m_bookRepository.GetBookInfo(id).Pages ?? 999;
-            BookPageRepository bookPageRepository = new BookPageRepository(path, totalPages);
-            Image thisPage = bookPageRepository.GetPage(page);
-            MemoryStream ms = new MemoryStream();
-            thisPage.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
-            ViewData["id"] = id;  //temp
             ViewData["page"] = page;   //temp
-            Response.BinaryWrite(ms.ToArray());
-            return View("Read", "project");
+            book_BookInfo theInfo = m_bookRepository.GetBookInfo(id);
+            return View("Read",theInfo);
         }
 
 

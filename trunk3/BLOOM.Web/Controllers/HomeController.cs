@@ -13,7 +13,7 @@ namespace BLOOM.Web.Controllers
         public ActionResult Index()
         {
             Analyse bookAnalyse = new Analyse();
-            ViewData["Message"] = "Welcome to ASP.NET MVC!";
+            ViewData["Message"] = "Welcome to BLOOM!";
             ViewData["NewBooks"] = bookAnalyse.NewBooks();
             ViewData["TopFive"] = bookAnalyse.TopFive();
             ViewData["HotBooks"] = bookAnalyse.HotBooks();

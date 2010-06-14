@@ -34,3 +34,15 @@ D:\新建文件夹\BLOOM\obj\Debug\BLOOM.g.resources
 D:\新建文件夹\BLOOM\obj\Debug\BLOOM.dll
 D:\新建文件夹\BLOOM\obj\Debug\BLOOM.pdb
 D:\新建文件夹\BLOOM\obj\Debug\XapCacheFile.xml
+C:\Users\CyberKing\Desktop\yjy\trunk3\BLOOM\Bin\Debug\AppManifest.xaml
+C:\Users\CyberKing\Desktop\yjy\trunk3\BLOOM\Bin\Debug\BLOOM.dll
+C:\Users\CyberKing\Desktop\yjy\trunk3\BLOOM\Bin\Debug\BLOOM.pdb
+C:\Users\CyberKing\Desktop\yjy\trunk3\BLOOM\Bin\Debug\BLOOM.xap
+C:\Users\CyberKing\Desktop\yjy\trunk3\BLOOM\Bin\Debug\TestPage.html
+C:\Users\CyberKing\Desktop\yjy\trunk3\BLOOM\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\CyberKing\Desktop\yjy\trunk3\BLOOM\obj\Debug\App.g.cs
+C:\Users\CyberKing\Desktop\yjy\trunk3\BLOOM\obj\Debug\Page.g.cs
+C:\Users\CyberKing\Desktop\yjy\trunk3\BLOOM\obj\Debug\BLOOM.g.resources
+C:\Users\CyberKing\Desktop\yjy\trunk3\BLOOM\obj\Debug\BLOOM.dll
+C:\Users\CyberKing\Desktop\yjy\trunk3\BLOOM\obj\Debug\BLOOM.pdb
+C:\Users\CyberKing\Desktop\yjy\trunk3\BLOOM\obj\Debug\XapCacheFile.xml

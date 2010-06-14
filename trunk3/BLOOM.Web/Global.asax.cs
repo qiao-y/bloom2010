@@ -32,8 +32,13 @@ namespace BLOOM.Web
                "BookSearch",
                "Book/Search/{keyWord}/{kind}",
                new { controller = "Book", action = "Search", keyWord = "", kind = "" }
-           ); 
-  
+           );
+
+            routes.MapRoute(
+             "GetPage",
+             "Book/GetPage/{id}/{page}",
+             new { controller = "Book", action = "GetPage", id = "", page = "" }
+         ); 
  
         }
 

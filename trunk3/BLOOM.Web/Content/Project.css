@@ -54,8 +54,10 @@
 
 .F_Search
 {
-	height:50px;
-	border-style:dotted;
+	height:100px;
+	background-color:Gray;
+	padding:10px;
+	color:White;
 }
 
 /*---------------------------------------------------------------------------------*/
@@ -302,7 +304,11 @@
 {
 	font-size: small;
 	color: Gray;
-	text-align:center;	
+}
+
+#Title_Register
+{
+	text-align:center;
 }
 
 #BasicInfo legend,#FurtherInfo legend
@@ -330,6 +336,12 @@
 #Submit_Register
 {
 	text-align:center;
+}
+
+.Validation
+{
+	text-align:center;
+	color:Red;
 }
 
 /*--------------------------------------------------------------------*/
@@ -411,36 +423,7 @@
 
 
 
-/*----------------------------------------------------------------*/
-/*For administrator*/
-#Adm_sidebar_list li
-{
-	list-style:none;
-	padding-bottom:3px;
-}
 
-#Adm_sidebar
-{
-	width:250px;
-}
-
-#user_menu,#book_menu
-{
-	width:593px;
-	height:162px;
-	float:right;
-	border-style:dotted;
-}
-
-#adm_main
-{
-	clear:both;
-}
-
-#Adm_head
-{
-	font-size:xx-large;
-}
 
 
 
@@ -508,27 +491,7 @@
 	width:188px;
 }
 
-/*for community*/
-#Activity
-{
-	float:left;
-	margin:10px 10px 10px 0;
-	width:655px;
-}
 
-#BBS
-{
-	float:left;
-	margin:0 10px 10px 0;
-	width:655px;
-}
-
-#ComSideBar
-{
-	float:right;
-	margin:10px 0 10px 0;
-	width:188px;
-}
 
 /*for reading*/
 #Catalog
@@ -543,4 +506,37 @@
 	float:right;
 	width:655px;
 	border-style:groove;
+}
+
+
+/*--------------------------------------------------------------------*/
+/*for about*/
+#About_sidebar
+{
+	width:188px;
+	float:left;
+}
+
+#About_main
+{
+	width:655px;
+	float:right;
+}
+
+#About_sidebar ul
+{
+	list-style:none;
+	text-align:center;
+}
+
+#About_sidebar ul li a
+{
+	display:block;
+	text-decoration:none;
+}
+
+#About_sidebar ul li a:hover
+{
+	background-color:Green;
+	color:White;
 }

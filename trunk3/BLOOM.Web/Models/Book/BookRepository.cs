@@ -92,8 +92,6 @@ namespace BLOOM.Web.Models.Book
             return result;
         }
 
-
-
         public string GetBookPath(int id)
         {
             return m_bookDataContext.book_BookInfo.SingleOrDefault(d => d.BookId == id).Path; 

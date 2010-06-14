@@ -1,4 +1,4 @@
-<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<BLOOM.Models.Book.book_BookInfo>" %>
+<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<BLOOM.Web.Models.Book.book_BookInfo>" %>
 
     <%= Html.ValidationSummary("Delete was unsuccessful. There is no such book in the library.") %>
 

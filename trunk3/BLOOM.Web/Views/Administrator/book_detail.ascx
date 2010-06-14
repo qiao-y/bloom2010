@@ -1,4 +1,4 @@
-<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<BLOOM.Models.User.PersonalInfo>" %>
+<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<BLOOM.Web.Models.User.PersonalInfo>" %>
 
     <fieldset>
         <legend>Fields</legend>

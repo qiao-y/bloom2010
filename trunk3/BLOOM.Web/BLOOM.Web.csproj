@@ -74,6 +74,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ImgHelper.cs" />
     <Compile Include="Models\Analyse\Analyse.cs" />
     <Compile Include="Models\Analyse\AnalyseLinqConnection.designer.cs">
       <AutoGen>True</AutoGen>
@@ -224,6 +225,7 @@
     <Content Include="Image\star.gif" />
     <Content Include="Image\weekhot.jpg" />
     <Content Include="Views\Analyse\Index.aspx" />
+    <Content Include="Views\Book\BookSearchResult.aspx" />
     <Content Include="Views\Shared\Project.Master" />
     <Content Include="Views\Shared\User.Master" />
   </ItemGroup>

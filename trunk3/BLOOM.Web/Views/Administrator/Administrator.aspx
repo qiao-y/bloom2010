@@ -1,30 +1,72 @@
-<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Administrator.Master" Inherits="System.Web.Mvc.ViewPage" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="AdmTitleContent" runat="server">
+    Creat Book
+</asp:Content>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<asp:Content ID="Content2" ContentPlaceHolderID="AdmMainContent" runat="server">
+        <%= Html.ValidationSummary("Create was unsuccessful. Please correct the errors and try again.") %>
 
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head runat="server">
-    <title>Administrator</title>
-    <link href="../../Content/Project.css" rel="stylesheet" type="text/css" />
-</head>
+    <% using (Html.BeginForm()) {%>
 
-<body>
-    <div id = "Adm_head">
-        <img src="../../Image/pic/bloom.jpg" style="width: 30%; height: 30%" /> 
-        ͼ����ڲ�����ϵͳ</div>
-    <div id = "Adm_sidebar">
-    	<img id="adm_user" src="../../Image/adm/adm1.jpg" />
-    	<img id="adm_book" src="../../Image/adm/adm2.jpg" />
-    	<img id="adm_other" src="../../Image/adm/adm3.jpg" />   
-    </div>
-    <div id = "user_menu">
-    </div>
-    <div id = "book_menu">
-    </div>
-    
-    <div id="adm_main">
-        <% Html.RenderPartial("book_creat"); %>
-    </div>
-    
-</body>
-</html>
+        <fieldset>
+            <p>
+                <label for="BookId">编号：</label>
+                <%= Html.TextBox("BookId") %>
+                <%= Html.ValidationMessage("BookId", "*") %>
+            </p>
+            <p>
+                <label for="Title">书名：</label>
+                <%= Html.TextBox("Title") %>
+                <%= Html.ValidationMessage("Title", "*") %>
+            </p>
+            <p>
+                <label for="Author">作者</label>
+                <%= Html.TextBox("Author") %>
+                <%= Html.ValidationMessage("Author", "*") %>
+            </p>
+
+            <p>
+                <label for="Publisher">出版社：</label>
+                <%= Html.TextBox("Publisher") %>
+                <%= Html.ValidationMessage("Publisher", "*") %>
+            </p>
+            <p>
+                <label for="PublicationDate">出版日期：</label>
+                <%= Html.TextBox("PublicationDate") %>
+                <%= Html.ValidationMessage("PublicationDate", "*") %>
+            </p>
+
+
+            <p>
+                <label for="Price">定价：</label>
+                <%= Html.TextBox("Price") %>
+                <%= Html.ValidationMessage("Price", "*") %>
+            </p>
+            <p>
+                <label for="Pages">页数：</label>
+                <%= Html.TextBox("Pages") %>
+                <%= Html.ValidationMessage("Pages", "*") %>
+            </p>
+            <p>
+                <label for="Extract">简介：</label>
+                <%= Html.TextArea("Extract") %>
+                <%= Html.ValidationMessage("Extract", "*") %>
+            </p>
+            <p>
+                <label for="Snapshot">封面：</label>
+                <%= Html.TextBox("Snapshot") %>
+                <%= Html.ValidationMessage("Snapshot", "*") %>
+            </p>
+            <p>
+                <label for="Path">上传路径：</label>
+                <%= Html.TextBox("Path") %>
+                <%= Html.ValidationMessage("Path","*") %>                
+            </p>
+            
+            <p>
+                <input type="submit" value="添加" />
+            </p>
+        </fieldset>
+
+    <% } %>
+</asp:Content>

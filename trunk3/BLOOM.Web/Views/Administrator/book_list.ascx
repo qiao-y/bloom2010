@@ -1,4 +1,4 @@
-<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<IEnumerable<BLOOM.Models.Book.book_BookInfo>>" %>
+<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<IEnumerable<BLOOM.Web.Models.Book.book_BookInfo>>" %>
 
     <table>
         <tr>
