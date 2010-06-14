@@ -6,8 +6,19 @@
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        List<SelectListItem> searchList = new List<SelectListItem>(){
+        new SelectListItem() { Value = "0", Text = "书名"},
+        new SelectListItem() { Value = "1", Text = "书号"},
+        new SelectListItem() { Value = "2", Text = "文摘"},
+        new SelectListItem() { Value = "3", Text = "作者"},
+        new SelectListItem() { Value = "4", Text = "出版社"},
+        new SelectListItem() { Value = "5", Text = "出版日期"},
+            };
+        ViewData["SearchKindList"] = new SelectList(searchList, "Value", "Text", "0");
 
     }
+
+
 </script>
 
 
@@ -49,22 +60,19 @@
         </div>
         
         <fieldset id="search">
-            
-            <asp:DropDownList ID="DropDownList1" runat="server">
-                <asp:ListItem Value="1">书名</asp:ListItem>
-                <asp:ListItem Value="2">书号</asp:ListItem>
-                <asp:ListItem Value="3">关键词</asp:ListItem>
-                <asp:ListItem Value="4">作者</asp:ListItem>
-                <asp:ListItem Value="5">出版社</asp:ListItem>
-                <asp:ListItem Value="6">出版日期</asp:ListItem>
-            </asp:DropDownList>
-            <asp:TextBox ID="SearchInput" runat="server"></asp:TextBox>
-            <asp:Image ID="searchpic" runat="server" ImageUrl="~/Image/pic/search.jpg" />
-            <asp:Label ID="Label1" runat="server" Text="热门搜索:"></asp:Label>
+        
+            <% using (Html.BeginForm()) {%>
+            <%= Html.DropDownList("SearchKind",ViewData["SearchKindList"] as SelectList)%>
+            <%=Html.TextBox("SearchInput")%>
+            <asp:ImageButton ID="ImageButton1" runat="server" 
+                ImageUrl="~/Image/pic/search.jpg" PostBackUrl="../../Search" />
+            <input id="Submit1" style="background-image: ~/Image/pic/search.jpg" 
+                type="submit" value="搜索" /><asp:Label ID="Label1" runat="server" Text="热门搜索:"></asp:Label>
             <label id="FSearch"><a href="#">高级搜索</a></label>    
         </fieldset>
         
-        <div id="FurtherSearch">
+        <div id="FurtherSearch" 
+            style="background-image: url('/F:/Projects(S02E02)/BLOOM_DigitalLibary/latest/trunk3/BLOOM.Web/../../Image/pic/search.jpg')">
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
             	<tr>
             		<td><label for="BookName">书名：</label></td>
@@ -89,6 +97,8 @@
                 <input type="submit" value="搜索" />
             </p>
         </div>
+        
+    <% } %>
         
 
         <div id = "main">

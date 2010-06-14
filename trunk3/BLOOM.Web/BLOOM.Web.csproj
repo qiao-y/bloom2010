@@ -97,6 +97,13 @@
     <Compile Include="Models\User\UserRepository.cs" />
     <Compile Include="Models\User\ValidateCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Shared\Administrator.Master.cs">
+      <DependentUpon>Administrator.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\Administrator.Master.designer.cs">
+      <DependentUpon>Administrator.Master</DependentUpon>
+    </Compile>
     <Compile Include="Views\Shared\User.Master.cs">
       <DependentUpon>User.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -147,7 +154,6 @@
     <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
     <Content Include="Views\Account\ChangePassword.aspx" />
     <Content Include="Views\Account\ChangePasswordSuccess.aspx" />
-    <Content Include="Views\Account\LogOn.aspx" />
     <Content Include="Views\Account\Register.aspx" />
     <Content Include="Views\Home\About.aspx" />
     <Content Include="Views\Home\Index.aspx" />
@@ -256,6 +262,8 @@
     <None Include="Models\Analyse\AnalyseLinqConnection.dbml.layout">
       <DependentUpon>AnalyseLinqConnection.dbml</DependentUpon>
     </None>
+    <Content Include="Content\smallslider.css" />
+    <Content Include="Views\Shared\Administrator.Master" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

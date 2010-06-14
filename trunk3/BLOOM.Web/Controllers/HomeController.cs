@@ -12,6 +12,7 @@ namespace BLOOM.Web.Controllers
     {
         public ActionResult Index()
         {
+
             Analyse bookAnalyse = new Analyse();
             ViewData["Message"] = "Welcome to BLOOM!";
             ViewData["NewBooks"] = bookAnalyse.NewBooks();
@@ -24,9 +25,12 @@ namespace BLOOM.Web.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Index(FormCollection formCollection)
         {
-            string key = formCollection["SearchInput"];   //key word
-            if (key == null)
-                return View();   // nothing is input, just show the initial index page
+
+            if (formCollection["SearchInput"] == null)
+                return View(); // nothing is input, just show the initial index page
+            string key = formCollection["SearchInput"];
+            //if (key == null)
+            //    return View();   
             int theKind = int.Parse(formCollection["SearchKind"]);  //kind of key word typed, such as title, ISBN...
             return RedirectToAction("../Book/Search", new { keyWord = key, kind = theKind });
         }
