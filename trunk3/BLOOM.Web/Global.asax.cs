@@ -23,6 +23,12 @@ namespace BLOOM.Web
             );
 
             routes.MapRoute(
+             "BuyBook",
+             "Book/Buy/{bookID}",
+              new { controller = "Book", action = "Buy", bookID = ""}
+            ); 
+            
+            routes.MapRoute(
                  "BookRead",
                  "Book/Read/{id}/{page}",
                  new { controller = "Book", action = "Read", id = "", page = "" }

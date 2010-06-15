@@ -71,8 +71,7 @@
             <label id="FSearch"><a href="#">高级搜索</a></label>    
         </fieldset>
         
-        <div id="FurtherSearch" 
-            style="background-image: url('/F:/Projects(S02E02)/BLOOM_DigitalLibary/latest/trunk3/BLOOM.Web/../../Image/pic/search.jpg')">
+        <div id="FurtherSearch">
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
             	<tr>
             		<td><label for="BookName">书名：</label></td>

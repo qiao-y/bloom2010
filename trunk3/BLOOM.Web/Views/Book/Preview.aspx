@@ -43,8 +43,9 @@
          <a href = "/Book/Read/<%=Model.BookId %>/1" >
          <p>立即阅读</p>
         </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href = "/Book/Buy/<%=Model.BookId %>" >
-        <p>点击购买</p>
+        <p>
+        <%= Html.ActionLink("点击购买","Buy",new {bookID = Model.BookId}) %>
+        </p>
        </a>
         </p> 
       
@@ -54,9 +55,9 @@
 
         <p>
             <strong>分数:</strong>
-            <%--    <strong>有</strong>
-            <%=Html.Encode(int.Parse(Model.book_BooksViewed.ToString())) %>
-            <strong>人看过</strong>--%>
+              <strong>有</strong>
+            <%=Html.Encode(Model.book_BooksViewed) %>
+            <strong>人看过</strong>
         </p>
         <p>
             <strong>相关书评:</strong>
