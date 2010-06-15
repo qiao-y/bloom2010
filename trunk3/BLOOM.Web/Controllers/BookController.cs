@@ -45,6 +45,8 @@ namespace BLOOM.Web.Controllers
         public ActionResult Preview(int id)
         {
             book_BookInfo theInfo = m_bookRepository.GetBookInfo(id);
+            theInfo.ViewedTimes = theInfo.ViewedTimes + 1;
+            m_bookRepository.Submit();
             return View(theInfo);
         }
 
@@ -78,6 +80,7 @@ namespace BLOOM.Web.Controllers
             try
             {
                 m_userRepository.Submit();
+                bookInfo.BoughtTimes = bookInfo.BoughtTimes + 1;
                 m_bookRepository.Submit();
                 return RedirectToAction("Read", new { id = bookID, page = 1 });  //great
             }

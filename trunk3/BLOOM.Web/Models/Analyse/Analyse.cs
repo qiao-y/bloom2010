@@ -24,7 +24,7 @@ namespace BLOOM.Web.Models.Analyse
 
     public struct m_genderRange
     {
-        public bool gender; // true means male~
+        public string gender; // true means male~
         public int count;   // the number of people of the same gender
     };
 
@@ -49,7 +49,7 @@ namespace BLOOM.Web.Models.Analyse
 
     public struct m_moneyByGender
     {
-        public bool gender;
+        public string gender;
         public Decimal money;
     };
 
@@ -182,7 +182,7 @@ namespace BLOOM.Web.Models.Analyse
             foreach (var res in groupResult)
             {
                 m_genderRange temp = new m_genderRange();
-                temp.gender = res.gender;
+                temp.gender = res.gender ? "男" : "女";
                 temp.count = res.count;
                 result.Add(temp);
             }
@@ -192,6 +192,7 @@ namespace BLOOM.Web.Models.Analyse
         public List<m_occupationRange> GetOccupationStatistics()  // return pairs of occupation and the number of people of the same occupation
         {
             var groupResult = from user in m_analyseDataContext.aspnet_Membership
+                              where user.Occupation != ""  // can be deleted
                               group user by user.Occupation into occupationGroups
                               select new
                               {
@@ -212,7 +213,7 @@ namespace BLOOM.Web.Models.Analyse
         public List<m_createDateRange> GetCreateDateStatistics()  // return pairs of occupation and the number of people of the same occupation
         {
             var groupResult = from user in m_analyseDataContext.aspnet_Membership
-                              group user by user.CreateDate into createDateGroups
+                              group user by user.CreateDate.Date into createDateGroups
                               select new
                               {
                                   createDateGroups.Key,
@@ -354,7 +355,7 @@ namespace BLOOM.Web.Models.Analyse
             foreach(var res in groupResult)
             {
                 m_moneyByGender temp = new m_moneyByGender();
-                temp.gender = res.Key;
+                temp.gender = res.Key ? "男" : "女";
                 temp.money = res.totalMoney;
                 result.Add(temp);
             }
@@ -379,7 +380,7 @@ namespace BLOOM.Web.Models.Analyse
             foreach(var res in groupResult)
             {
                 m_moneyByGender temp = new m_moneyByGender();
-                temp.gender = res.Key;
+                temp.gender = res.Key ? "男" : "女";
                 temp.money = res.totalMoney;
                 result.Add(temp);
             }
@@ -391,6 +392,7 @@ namespace BLOOM.Web.Models.Analyse
             UserRepository userRepository = new UserRepository();
             var groupResult = from record in m_analyseDataContext.book_BookBought
                               from user in m_analyseDataContext.aspnet_Membership
+                              where user.Occupation != "" // can be deleted
                               where record.UserId == user.UserId
                               group record by user.Occupation into occupationGroups
                               select new
@@ -416,6 +418,7 @@ namespace BLOOM.Web.Models.Analyse
             var groupResult = from record in m_analyseDataContext.book_BookBought
                               where record.PurchaseDate > startDate
                               from user in m_analyseDataContext.aspnet_Membership
+                              where user.Occupation != "" // can be deleted
                               where record.UserId == user.UserId
                               group record by user.Occupation into occupationGroups
                               select new

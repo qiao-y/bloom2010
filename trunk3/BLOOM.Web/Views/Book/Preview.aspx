@@ -54,14 +54,20 @@
         <asp:Image ID="remarkinfopic" runat="server" ImageUrl="~/Image/9.jpg" />
 
         <p>
-            <strong>分数:</strong>
-              <strong>有</strong>
-            <%=Html.Encode(Model.book_BooksViewed) %>
+            <strong>评分:</strong>
+            <% if (Model.UserScored == 0) %>
+            <%= Html.Encode("暂无人评分")%>
+            <% if(Model.UserScored != 0) %>
+            <%= Html.Encode("得分:" + (Model.TotalScore.GetValueOrDefault(0) / (float)Model.UserScored.GetValueOrDefault(1)).ToString()) %>
+        </p>
+        <p>
+            <strong>有</strong>
+            <%=Html.Encode(Model.ViewedTimes) %>
             <strong>人看过</strong>
         </p>
         <p>
             <strong>相关书评:</strong>
-            <%=Html.Encode(Model.TotalScore) %>
+           
         </p>
 
     </fieldset>

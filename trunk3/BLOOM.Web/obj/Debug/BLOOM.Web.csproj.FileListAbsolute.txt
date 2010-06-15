@@ -96,3 +96,17 @@ F:\Projects(S02E02)\BLOOM_DigitalLibary\latest\trunk3\BLOOM.Web\bin\zh-Hant\Syst
 F:\Projects(S02E02)\BLOOM_DigitalLibary\latest\trunk3\BLOOM.Web\obj\Debug\ResolveAssemblyReference.cache
 F:\Projects(S02E02)\BLOOM_DigitalLibary\latest\trunk3\BLOOM.Web\obj\Debug\BLOOM.Web.dll
 F:\Projects(S02E02)\BLOOM_DigitalLibary\latest\trunk3\BLOOM.Web\obj\Debug\BLOOM.Web.pdb
+D:\新建文件夹 (2)\BLOOM.Web\bin\BLOOM.Web.dll
+D:\新建文件夹 (2)\BLOOM.Web\bin\BLOOM.Web.pdb
+D:\新建文件夹 (2)\BLOOM.Web\bin\System.Web.Silverlight.dll
+D:\新建文件夹 (2)\BLOOM.Web\bin\de\System.Web.Silverlight.resources.dll
+D:\新建文件夹 (2)\BLOOM.Web\bin\es\System.Web.Silverlight.resources.dll
+D:\新建文件夹 (2)\BLOOM.Web\bin\fr\System.Web.Silverlight.resources.dll
+D:\新建文件夹 (2)\BLOOM.Web\bin\it\System.Web.Silverlight.resources.dll
+D:\新建文件夹 (2)\BLOOM.Web\bin\ja\System.Web.Silverlight.resources.dll
+D:\新建文件夹 (2)\BLOOM.Web\bin\ko\System.Web.Silverlight.resources.dll
+D:\新建文件夹 (2)\BLOOM.Web\bin\zh-Hans\System.Web.Silverlight.resources.dll
+D:\新建文件夹 (2)\BLOOM.Web\bin\zh-Hant\System.Web.Silverlight.resources.dll
+D:\新建文件夹 (2)\BLOOM.Web\obj\Debug\ResolveAssemblyReference.cache
+D:\新建文件夹 (2)\BLOOM.Web\obj\Debug\BLOOM.Web.dll
+D:\新建文件夹 (2)\BLOOM.Web\obj\Debug\BLOOM.Web.pdb
