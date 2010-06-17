@@ -42,7 +42,6 @@ C:\Users\CyberKing\Desktop\新建文件夹\trunk3\BLOOM.Web\bin\zh-Hant\System.W
 C:\Users\CyberKing\Desktop\新建文件夹\trunk3\BLOOM.Web\obj\Debug\BLOOM.Web.pdb
 D:\BLOOM\trunk3\BLOOM.Web\bin\BLOOM.Web.dll
 D:\BLOOM\trunk3\BLOOM.Web\bin\BLOOM.Web.pdb
-D:\BLOOM\trunk3\BLOOM.Web\bin\System.Web.Silverlight.dll
 D:\BLOOM\trunk3\BLOOM.Web\bin\de\System.Web.Silverlight.resources.dll
 D:\BLOOM\trunk3\BLOOM.Web\bin\es\System.Web.Silverlight.resources.dll
 D:\BLOOM\trunk3\BLOOM.Web\bin\fr\System.Web.Silverlight.resources.dll

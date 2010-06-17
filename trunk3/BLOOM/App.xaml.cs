@@ -26,7 +26,14 @@ namespace BLOOM
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            this.RootVisual = new Page();
+            IDictionary<string, string> parameters = e.InitParams;
+            if (parameters == null)
+            {
+            }
+            else if (parameters["PageName"] == "Ink")
+            {
+                this.RootVisual = new Ink();
+            }   
         }
 
         private void Application_Exit(object sender, EventArgs e)

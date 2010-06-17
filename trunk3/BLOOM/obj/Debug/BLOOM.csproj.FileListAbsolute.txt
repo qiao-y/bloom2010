@@ -17,7 +17,6 @@ D:\BLOOM\trunk3\BLOOM\Bin\Debug\BLOOM.xap
 D:\BLOOM\trunk3\BLOOM\Bin\Debug\TestPage.html
 D:\BLOOM\trunk3\BLOOM\obj\Debug\ResolveAssemblyReference.cache
 D:\BLOOM\trunk3\BLOOM\obj\Debug\App.g.cs
-D:\BLOOM\trunk3\BLOOM\obj\Debug\Page.g.cs
 D:\BLOOM\trunk3\BLOOM\obj\Debug\BLOOM.g.resources
 D:\BLOOM\trunk3\BLOOM\obj\Debug\BLOOM.dll
 D:\BLOOM\trunk3\BLOOM\obj\Debug\BLOOM.pdb
@@ -58,3 +57,4 @@ D:\新建文件夹 (2)\BLOOM\obj\Debug\BLOOM.g.resources
 D:\新建文件夹 (2)\BLOOM\obj\Debug\BLOOM.dll
 D:\新建文件夹 (2)\BLOOM\obj\Debug\BLOOM.pdb
 D:\新建文件夹 (2)\BLOOM\obj\Debug\XapCacheFile.xml
+D:\BLOOM\trunk3\BLOOM\obj\Debug\Ink.g.cs

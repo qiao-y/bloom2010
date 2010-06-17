@@ -65,7 +65,7 @@
                 <form id="form2" runat="server" style="height:100%;">
         <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
         <div  style="height:100%;">
-            <asp:Silverlight InitParameters="PageName=Page" ID="Silverlight1" runat="server" Source="~/ClientBin/BLOOM.xap" MinimumVersion="2.0.31005.0" Width="100%" Height="100%" />
+            <asp:Silverlight InitParameters="PageName=Ink" ID="Silverlight1" runat="server" Source="~/ClientBin/BLOOM.xap" MinimumVersion="2.0.31005.0" Width="100%" Height="100%" />
         </div>
     </form>
         <% } %>
