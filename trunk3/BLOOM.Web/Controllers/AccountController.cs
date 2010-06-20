@@ -50,7 +50,7 @@ namespace BLOOM.Web.Controllers
             ModelState.Add("Age", new ModelState() { Value = formValues.ToValueProvider()["Age"] });
 
             //use PersonalInfo and AccountInfo to store the info 
-            if (formValues["Age"] == null)
+            if (formValues["Age"].Trim().Length == 0)
                 formValues["Age"] = "0";   //this is a temporary solution
 
             //validate
@@ -75,7 +75,7 @@ namespace BLOOM.Web.Controllers
             //validate
             PersonalInfo personalInfo = new PersonalInfo();
             UpdateModel(personalInfo);
-            personalInfo.Gender = Request.Form["Sex"] == "男" ? true : false;
+            personalInfo.Gender = formValues["Sex"] == "M" ? true : false;
 
             if (!personalInfo.IsValid())
             {

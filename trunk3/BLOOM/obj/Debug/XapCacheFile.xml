@@ -1,4 +1,11 @@
-﻿<xapCache source="D:\BLOOM\trunk3\BLOOM\Bin\Debug\BLOOM.xap" lastWriteTime="2010/6/17 20:34:11">
-  <file source="D:\BLOOM\trunk3\BLOOM\obj\Debug\BLOOM.dll" archivePath="BLOOM.dll" lastWriteTime="2010/6/17 20:34:10" />
-  <file source="D:\BLOOM\trunk3\BLOOM\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="2010/6/17 20:30:13" />
+﻿<xapCache source="D:\trunk3\BLOOM\Bin\Debug\BLOOM.xap" lastWriteTime="2010/6/20 21:41:18">
+  <file source="D:\trunk3\BLOOM\obj\Debug\BLOOM.dll" archivePath="BLOOM.dll" lastWriteTime="2010/6/20 21:41:16" />
+  <file source="C:\Program Files\Microsoft SDKs\Silverlight\v3.0\Libraries\Client\System.Runtime.Serialization.Json.dll" archivePath="System.Runtime.Serialization.Json.dll" lastWriteTime="2009/6/23 22:12:28" />
+  <file source="C:\Program Files\Microsoft SDKs\Silverlight\v3.0\Toolkit\Nov09\Bin\System.Windows.Controls.DataVisualization.Toolkit.dll" archivePath="System.Windows.Controls.DataVisualization.Toolkit.dll" lastWriteTime="2009/11/18 3:14:40" />
+  <file source="C:\Program Files\Microsoft SDKs\Silverlight\v3.0\Libraries\Client\System.Windows.Controls.dll" archivePath="System.Windows.Controls.dll" lastWriteTime="2009/7/21 16:43:18" />
+  <file source="C:\Program Files\Microsoft SDKs\Silverlight\v3.0\Toolkit\Nov09\Bin\System.Windows.Controls.Toolkit.dll" archivePath="System.Windows.Controls.Toolkit.dll" lastWriteTime="2009/11/18 3:14:52" />
+  <file source="C:\Program Files\Microsoft SDKs\Silverlight\v3.0\Toolkit\Nov09\Bin\System.Reactive.dll" archivePath="System.Reactive.dll" lastWriteTime="2009/11/18 2:30:10" />
+  <file source="C:\Program Files\Microsoft SDKs\Silverlight\v3.0\Libraries\Client\zh-Hans\System.Runtime.Serialization.Json.resources.dll" archivePath="zh-Hans\System.Runtime.Serialization.Json.resources.dll" lastWriteTime="2009/7/21 16:43:18" />
+  <file source="C:\Program Files\Microsoft SDKs\Silverlight\v3.0\Libraries\Client\zh-Hans\System.Windows.Controls.resources.dll" archivePath="zh-Hans\System.Windows.Controls.resources.dll" lastWriteTime="2009/7/21 16:43:18" />
+  <file source="D:\trunk3\BLOOM\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="2010/6/20 20:32:11" />
 </xapCache>

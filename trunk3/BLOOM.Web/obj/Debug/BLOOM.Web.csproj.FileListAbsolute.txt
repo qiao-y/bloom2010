@@ -109,3 +109,8 @@ D:\新建文件夹 (2)\BLOOM.Web\bin\zh-Hant\System.Web.Silverlight.resources.dl
 D:\新建文件夹 (2)\BLOOM.Web\obj\Debug\ResolveAssemblyReference.cache
 D:\新建文件夹 (2)\BLOOM.Web\obj\Debug\BLOOM.Web.dll
 D:\新建文件夹 (2)\BLOOM.Web\obj\Debug\BLOOM.Web.pdb
+D:\trunk3\BLOOM.Web\bin\BLOOM.Web.dll
+D:\trunk3\BLOOM.Web\bin\BLOOM.Web.pdb
+D:\trunk3\BLOOM.Web\obj\Debug\ResolveAssemblyReference.cache
+D:\trunk3\BLOOM.Web\obj\Debug\BLOOM.Web.dll
+D:\trunk3\BLOOM.Web\obj\Debug\BLOOM.Web.pdb

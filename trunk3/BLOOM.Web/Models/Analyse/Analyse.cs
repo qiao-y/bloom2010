@@ -1,6 +1,6 @@
 ﻿// Author:  Yang Juyuan
 // Date:    2010.6.11
-// 
+// ~~~~~~
 
 using System;
 using System.Configuration;
@@ -36,7 +36,7 @@ namespace BLOOM.Web.Models.Analyse
 
     public struct m_createDateRange
     {
-        public DateTime createDate;
+        public string createDate;
         public int count;   // the number of people of the same createDate
     };
 
@@ -61,7 +61,7 @@ namespace BLOOM.Web.Models.Analyse
 
     public struct m_moneyByCategory
     {
-        public int categoryId;
+        public string categoryName;
         public Decimal money;
     };
 
@@ -82,19 +82,19 @@ namespace BLOOM.Web.Models.Analyse
 
     public struct m_categoryBoughtTimes
     {
-        public int categoryId;
+        public string categoryName;
         public int boughtTimes;
     };
 
     public struct m_categoryViewedTimes
     {
-        public int categoryId;
+        public string categoryName;
         public int viewedTimes;
     };
 
     public struct m_categoryStatistice
     {
-        public int categoryId;
+        public string categoryName;
         public int count;
     };
 
@@ -124,7 +124,9 @@ namespace BLOOM.Web.Models.Analyse
                                       && user.Age >= aimUser.Age - 5) 
                                   || (user.Age.HasValue == false
                                       && user.Occupation == aimUser.Occupation))
-                             select readRecord.book_BookInfo;
+                             group readRecord by readRecord.BookId into bookGroups
+                             orderby bookGroups.Count() descending
+                             select bookGroups.First().book_BookInfo;
                 if (result.Count() < TopFive().Count())
                     return TopFive();
                 else
@@ -135,7 +137,9 @@ namespace BLOOM.Web.Models.Analyse
                 var result = from readRecord in m_analyseDataContext.book_BookBought
                              from user in m_analyseDataContext.aspnet_Membership
                              where user.Occupation == aimUser.Occupation
-                             select readRecord.book_BookInfo;
+                             group readRecord by readRecord.BookId into bookGroups
+                             orderby bookGroups.Count() descending
+                             select bookGroups.First().book_BookInfo;
                 if (result.Count() < TopFive().Count())
                     return TopFive();
                 else
@@ -223,7 +227,7 @@ namespace BLOOM.Web.Models.Analyse
             foreach (var res in groupResult)
             {
                 m_createDateRange temp = new m_createDateRange();
-                temp.createDate = res.Key;
+                temp.createDate = res.Key.ToShortDateString();
                 temp.count = res.count;
                 result.Add(temp);
             }
@@ -253,11 +257,19 @@ namespace BLOOM.Web.Models.Analyse
             foreach (var res in groupResult)
             {
                 m_categoryStatistice temp = new m_categoryStatistice();
-                temp.categoryId = res.Key;
+                temp.categoryName = GetCategoryName(res.Key);
                 temp.count = res.count;
                 result.Add(temp);
             }
             return result;
+        }
+
+        public string GetCategoryName(int categoryId)
+        {
+            var result = from category in m_analyseDataContext.book_Categories
+                         where category.CategoryId == categoryId
+                         select category;
+            return result.First().CategoryName;
         }
 
         // ----------- 3 statistics about money earned -----------
@@ -453,7 +465,7 @@ namespace BLOOM.Web.Models.Analyse
             foreach (var res in groupResult)
             {
                 m_moneyByCategory temp = new m_moneyByCategory();
-                temp.categoryId = res.Key;
+                temp.categoryName = GetCategoryName( res.Key);
                 temp.money = res.totalMoney;
                 result.Add(temp);
             }
@@ -478,7 +490,7 @@ namespace BLOOM.Web.Models.Analyse
             foreach (var res in groupResult)
             {
                 m_moneyByCategory temp = new m_moneyByCategory();
-                temp.categoryId = res.Key;
+                temp.categoryName = GetCategoryName( res.Key);
                 temp.money = res.totalMoney;
                 result.Add(temp);
             }
@@ -548,7 +560,7 @@ namespace BLOOM.Web.Models.Analyse
             foreach (var res in groupResult)
             {
                 m_categoryBoughtTimes temp = new m_categoryBoughtTimes();
-                temp.categoryId = res.Key;
+                temp.categoryName = GetCategoryName( res.Key);
                 temp.boughtTimes = res.count;
                 result.Add(temp);
             }
@@ -572,7 +584,7 @@ namespace BLOOM.Web.Models.Analyse
             foreach (var res in groupResult)
             {
                 m_categoryBoughtTimes temp = new m_categoryBoughtTimes();
-                temp.categoryId = res.Key;
+                temp.categoryName = GetCategoryName(res.Key);
                 temp.boughtTimes = res.count;
                 result.Add(temp);
             }
@@ -601,6 +613,32 @@ namespace BLOOM.Web.Models.Analyse
             return result;
         }
 
+        //public List<m_viewedTimes> GetBooksByViewedTimes(DateTime startTime) 
+        //    // statistics of the total viewed times since startTime
+        //{
+        //    var bookResult = from viewed in m_analyseDataContext.book_BooksViewed
+        //                     from belong in m_analyseDataContext.book_BooksBelong
+        //                     where viewed.LastViewDate > startTime
+        //                     where belong.BookId == viewed.BookId
+        //                     group viewed by belong.CategoryId into booksGroup
+        //                     select new
+        //                     {
+        //                         booksGroup.First().book_BookInfo.BookId,
+        //                         booksGroup.First().book_BookInfo.Title,
+        //                         count = booksGroup.Count()
+        //                     };
+        //    List<m_viewedTimes> result = new List<m_viewedTimes>();
+        //    foreach (var res in bookResult)
+        //    {
+        //        m_viewedTimes temp = new m_viewedTimes();
+        //        temp.bookId = res.BookId;
+        //        temp.title = res.Title;
+        //        temp.viewedTimes = res.count;
+        //        result.Add(temp);
+        //    }
+        //    return result;
+        //}
+
         public List<m_categoryViewedTimes> GetBooksByCategoryAndViewedTimes()  // statistics of the total viewed times of each category
         {
             var groupResult = from book in m_analyseDataContext.book_BookInfo
@@ -617,7 +655,7 @@ namespace BLOOM.Web.Models.Analyse
             foreach (var res in groupResult)
             {
                 m_categoryViewedTimes temp = new m_categoryViewedTimes();
-                temp.categoryId = res.Key;
+                temp.categoryName = GetCategoryName(res.Key);
                 temp.viewedTimes = res.count;
                 result.Add(temp);
             }

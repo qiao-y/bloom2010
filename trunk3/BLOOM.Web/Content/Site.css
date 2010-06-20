@@ -315,3 +315,13 @@ div#title
     font-weight: bold;
     color: #ff0000;
 }
+
+.ColumnBar
+{
+	height:500px;
+}
+
+.ColumnBarForUser
+{
+	height:900px;
+}

@@ -65,11 +65,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Json, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Windows" />
     <Reference Include="mscorlib" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
@@ -77,19 +83,131 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ColumnBar.xaml.cs">
+      <DependentUpon>ColumnBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColumnBarAgeRange.xaml.cs">
+      <DependentUpon>ColumnBarAgeRange.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColumnBarBookBoughtRank.xaml.cs">
+      <DependentUpon>ColumnBarBookBoughtRank.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColumnBarBookViewedRank.xaml.cs">
+      <DependentUpon>ColumnBarBookViewedRank.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColumnBarCategoryBoughtRank.xaml.cs">
+      <DependentUpon>ColumnBarCategoryBoughtRank.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColumnBarCategoryViewedRank.xaml.cs">
+      <DependentUpon>ColumnBarCategoryViewedRank.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColumnBarMoneyByAge.xaml.cs">
+      <DependentUpon>ColumnBarMoneyByAge.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColumnBarCategoryStatistics.xaml.cs">
+      <DependentUpon>ColumnBarCategoryStatistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColumnBarCreateDateRange.xaml.cs">
+      <DependentUpon>ColumnBarCreateDateRange.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColumnBarForUser.xaml.cs">
+      <DependentUpon>ColumnBarForUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColumnBarGenderRange.xaml.cs">
+      <DependentUpon>ColumnBarGenderRange.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColumnBarMoneyByCategory.xaml.cs">
+      <DependentUpon>ColumnBarMoneyByCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColumnBarMoneyByGender.xaml.cs">
+      <DependentUpon>ColumnBarMoneyByGender.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColumnBarMoneyByOccupation.xaml.cs">
+      <DependentUpon>ColumnBarMoneyByOccupation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColumnBarOccupationRange.xaml.cs">
+      <DependentUpon>ColumnBarOccupationRange.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ink.xaml.cs">
       <DependentUpon>Ink.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TreeView.xaml.cs">
+      <DependentUpon>TreeView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="ColumnBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ColumnBarAgeRange.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ColumnBarBookBoughtRank.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ColumnBarBookViewedRank.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ColumnBarCategoryBoughtRank.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ColumnBarCategoryViewedRank.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ColumnBarMoneyByAge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ColumnBarCategoryStatistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ColumnBarCreateDateRange.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ColumnBarForUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ColumnBarGenderRange.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ColumnBarMoneyByCategory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ColumnBarMoneyByGender.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ColumnBarMoneyByOccupation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="ColumnBarOccupationRange.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
     <Page Include="Ink.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TreeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

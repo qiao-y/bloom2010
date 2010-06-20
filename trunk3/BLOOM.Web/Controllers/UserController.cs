@@ -23,6 +23,18 @@ namespace BLOOM.Web.Controllers
             m_userRepository = new UserRepository();
         }
 
+        public ActionResult User(int id)
+        {
+            Guid guid = new Guid("ac0cded8-29a5-47ea-ae24-ced333f3c380");
+            aspnet_Membership temp1 = m_userRepository.GetUserPersonalInfo(guid);
+            aspnet_AccountInfo temp2 = m_userRepository.GetAccountInfo(guid);
+            GeneralInfo model = new GeneralInfo();
+            model.m_personalInfo = temp1;
+            model.m_accountInfo = temp2;
+            return View(model);
+        }
+
+
         //GET: /user
         //public ActionResult Index()
         //{
@@ -36,6 +48,8 @@ namespace BLOOM.Web.Controllers
         //GET: /user/details/1
         public ActionResult Details(int id)
         {
+
+
             // var userBase = m_userRepository.gGetUser(id);
             return View("Details", 1);
         }

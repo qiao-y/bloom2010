@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="BLOOM.ColumnBarCreateDateRange"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:charting ="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+    xmlns:datavis ="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+    xmlns:controls ="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit" 
+    Height="400" Width="800"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid x:Name="LayoutRoot" >
+
+        <charting:Chart x:Name="CreateDateChart"
+                    BorderBrush="AliceBlue"
+                    Margin="1"
+                    MouseLeftButtonDown="OnMouseLeftButtonDown">
+
+            <charting:ColumnSeries 
+            Title="人数"
+            IndependentValueBinding="{Binding Path=createDate}"
+            DependentValueBinding="{Binding Path=count}" 
+            AnimationSequence="FirstToLast"/>
+            <charting:Chart.Axes>
+                <charting:CategoryAxis Title="注册日期" Orientation="X" FontStyle="Italic"/>
+                <charting:LinearAxis Title="人数" Orientation="Y" Minimum="0" FontStyle="Italic"/>
+            </charting:Chart.Axes>
+        </charting:Chart>
+
+    </Grid>
+</UserControl>

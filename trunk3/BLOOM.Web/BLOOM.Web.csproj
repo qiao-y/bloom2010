@@ -58,6 +58,7 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Mobile" />
+    <Reference Include="Telerik.Web.Mvc, Version=2010.1.309.135, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
@@ -81,6 +82,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AnalyseLinqConnection.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Analyse\GetCommand.cs" />
     <Compile Include="Models\Book\BookLinqConnection.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -90,7 +92,7 @@
     <Compile Include="Models\Book\BookRepository.cs" />
     <Compile Include="Models\Book\StoreSnapshot.cs" />
     <Compile Include="Models\User\BalanceInfo.cs" />
-    <Compile Include="Models\User\GenenalInfo.cs" />
+    <Compile Include="Models\User\GeneralInfo.cs" />
     <Compile Include="Models\User\PersonalInfo.cs" />
     <Compile Include="Models\User\PersonalInfoRuleViolation.cs" />
     <Compile Include="Models\User\UserLinqConnection1.designer.cs" />
@@ -103,6 +105,13 @@
     </Compile>
     <Compile Include="Views\Shared\Administrator.Master.designer.cs">
       <DependentUpon>Administrator.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\Analyse.Master.cs">
+      <DependentUpon>Analyse.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\Analyse.Master.designer.cs">
+      <DependentUpon>Analyse.Master</DependentUpon>
     </Compile>
     <Compile Include="Views\Shared\User.Master.cs">
       <DependentUpon>User.Master</DependentUpon>
@@ -262,6 +271,8 @@
     <None Include="Models\Analyse\AnalyseLinqConnection.dbml.layout">
       <DependentUpon>AnalyseLinqConnection.dbml</DependentUpon>
     </None>
+    <Content Include="Content\Analyse.css" />
+    <Content Include="Views\Shared\Analyse.Master" />
     <Content Include="Content\smallslider.css" />
     <Content Include="Views\Shared\Administrator.Master" />
   </ItemGroup>
@@ -282,8 +293,8 @@
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>60029</DevelopmentServerPort>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>49392</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

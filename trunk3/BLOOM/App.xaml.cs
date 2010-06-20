@@ -14,7 +14,6 @@ namespace BLOOM
 {
     public partial class App : Application
     {
-
         public App()
         {
             this.Startup += this.Application_Startup;
@@ -26,14 +25,35 @@ namespace BLOOM
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            IDictionary<string, string> parameters = e.InitParams;
-            if (parameters == null)
+            switch (e.InitParams["PageName"])
             {
-            }
-            else if (parameters["PageName"] == "Ink")
-            {
-                this.RootVisual = new Ink();
-            }   
+                case "ColumnBarAgeRange":
+                    this.RootVisual = new ColumnBarAgeRange(); break;
+                case "ColumnBarOccupationRange":
+                    this.RootVisual = new ColumnBarOccupationRange(); break;
+                case "ColumnBarGenderRange":
+                    this.RootVisual = new ColumnBarGenderRange(); break;
+                case "ColumnBarCreateDateRange":
+                    this.RootVisual = new ColumnBarCreateDateRange();  break;
+                case "ColumnBarCategoryStatistics":
+                    this.RootVisual = new ColumnBarCategoryStatistics(); break;
+                case "ColumnBarMoneyByAge":
+                    this.RootVisual = new ColumnBarMoneyByAge(e.InitParams["Day"]); break;
+                case "ColumnBarMoneyByOccupation":
+                    this.RootVisual = new ColumnBarMoneyByOccupation(e.InitParams["Day"]);   break;
+                case "ColumnBarMoneyByCategory":
+                    this.RootVisual = new ColumnBarMoneyByCategory(e.InitParams["Day"]);   break;
+                case "ColumnBarMoneyByGender":
+                    this.RootVisual = new ColumnBarMoneyByGender(e.InitParams["Day"]);  break;
+                case "ColumnBarBookBoughtRank":
+                    this.RootVisual = new ColumnBarBookBoughtRank(e.InitParams["Day"]); break;
+                case "ColumnBarBookViewedRank":
+                    this.RootVisual = new ColumnBarBookViewedRank(e.InitParams["Day"]); break;
+                case "ColumnBarCategoryBoughtRank":
+                    this.RootVisual = new ColumnBarCategoryBoughtRank(e.InitParams["Day"]); break;
+                case "ColumnBarCategoryViewedRank":
+                    this.RootVisual = new ColumnBarCategoryViewedRank(e.InitParams["Day"]); break;
+             }
         }
 
         private void Application_Exit(object sender, EventArgs e)
